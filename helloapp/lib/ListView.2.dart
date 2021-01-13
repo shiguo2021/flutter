@@ -10,8 +10,7 @@ class MyApp extends StatelessWidget {
             appBar: new AppBar(
               title: new Text('ListView widget'),
             ),
-            body:
-                Center(child: Container(height: 200.0, child: MyList()))));
+            body: Center(child: Container(height: 200.0, child: MyList()))));
   }
 }
 
