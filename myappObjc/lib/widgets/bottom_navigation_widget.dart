@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './pages/airplay_screen.dart';
-import './pages/home_screen.dart';
-import './pages/email_screen.dart';
-import './pages/pages_screen.dart';
+import '../pages/airplay_screen.dart';
+import '../pages/home_screen.dart';
+import '../pages/email_screen.dart';
+import '../pages/pages_screen.dart';
 //快捷键命令:stful
 
 class BottomNavigationWidget extends StatefulWidget {
@@ -33,44 +33,35 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: _BottomNavigationColor,
-            ),
-            title: Text(
-              'Home',
-              style: TextStyle(color: _BottomNavigationColor),
-            ),
-          ),
+              icon: Icon(
+                Icons.home,
+                color: _BottomNavigationColor,
+              ),
+              label: 'Home',
+              backgroundColor: Colors.pink),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.email,
-              color: _BottomNavigationColor,
-            ),
-            title: Text(
-              'Email',
-              style: TextStyle(color: _BottomNavigationColor),
-            ),
-          ),
+              icon: Icon(
+                Icons.email,
+                color: _BottomNavigationColor,
+              ),
+              label: 'Email',
+              backgroundColor: Colors.purple),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.pages,
               color: _BottomNavigationColor,
             ),
-            title: Text(
-              'Pages',
-              style: TextStyle(color: _BottomNavigationColor),
-            ),
+            label: 'Pages',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.airplay,
               color: _BottomNavigationColor,
             ),
-            title: Text(
-              'Airplay',
-              style: TextStyle(color: _BottomNavigationColor),
-            ),
+            label: 'Airplay',
+            // title: Container(
+            //   child: Text('asdf'),
+            // )
           ),
         ],
 

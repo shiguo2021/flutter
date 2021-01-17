@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Product {
   final String title; //商品标题
   final String description; //商品描述
-  Product(this.title, this.description);
+  Product(this.title, this.description); //构造函数
 }
 
 void main() {
