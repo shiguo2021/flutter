@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 // import './23.毛玻璃效果.dart';
 // import './24.保持页面状态（segment）.dart';
 // import '25.不一样的搜索框.dart';
-import '26.Warp流式布局.dart';
+// import '26.Warp流式布局.dart';
+// import '27.展开闭合控件ExpansionTile.dart';
+
+import '28.展开闭合动态控制ExpansionPanel.dart';
 
 void main() => runApp(App());
 
