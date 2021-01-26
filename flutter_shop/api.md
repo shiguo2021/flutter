@@ -28,3 +28,14 @@ user-id: 92
 
 
 ```
+
+
+
+```
+list
+https://api.actiiot.com/api/cxh-app-service/v1/m/appMenuConfig/getAppMenuAppList?communityId=1805
+app-id: "1010"
+authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjkyLCJ2IjoiMSIsInRpY2siOjM2LCJ0eXBlIjoxLCJhaWQiOiIxMDEwIn0.Lj7lMZUqBEUfbov98Hxeo8xM3mhlNF0eL-XKxJJ3lUXA9tBrVcVnJjm9wUcR95yjt6wSlZO9UpdeSfXtUNt1ng"
+user-id: 92
+
+```
