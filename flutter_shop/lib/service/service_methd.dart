@@ -11,12 +11,11 @@ Future getHomeSwiper() async {
     // ContentType.parse("application/x-www-form-urlencoded");
     response = await dio.get(swiperUrl,
         queryParameters: {
-          'advertiseStatus': 1,
-          'advertiseType': 2,
           'communityId': 1805,
-          'isPublic': 0,
           'pageNo': 1,
-          'pageSize': 10
+          'pageSize': 1000,
+          'advertiseStatus': 1,
+          'advertiseType': 1
         },
         options: Options(headers: {
           'app-id': "1010",
