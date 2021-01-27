@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart'; //ios的设计风格   [ˌkupərˈtino�
 import 'home_page.dart';
 import 'cart_page.dart';
 import 'member_page.dart';
-import 'catgory_page copy.dart';
+import 'catgory_page.dart';
 
 class IndexPage extends StatefulWidget {
   @override
