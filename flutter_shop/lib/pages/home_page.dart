@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import '../service/service_methd.dart';
 import 'dart:convert';
+import 'package:flutter_screenutil/screenutil.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -17,10 +18,9 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
 
-    getHomeSwiper().then((value) {
+    getHomeData().then((value) {
       setState(() {
-        // homePageContent = value.toString();
-        homePageContent = value['data']['data'][0]['title'];
+        // print(value.toString());
       });
     });
   }
@@ -33,17 +33,24 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.amberAccent,
         body: FutureBuilder(
-          future: getHomeSwiper(),
+          future: getHomeData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               // var data = json.decode(snapshot.data.toString());
               // print(data);
-              List<Map> swiper = (snapshot.data['data']['data'] as List).cast();
-
+              List<Map> swiper = (snapshot.data['swipers'] as List).cast();
+              List navigatorList = snapshot.data['navigatorList'];
+              String adpicture = snapshot.data['adpicture'];
               return Column(
                 children: <Widget>[
                   SwiperDiy(
                     swiperDataList: swiper,
+                  ),
+                  TopNavigator(
+                    navigatorList: navigatorList,
+                  ),
+                  AdBanner(
+                    adpicture: adpicture,
                   )
                 ],
               );
@@ -67,16 +74,95 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print({
+      'defaultSize': ScreenUtil.defaultSize,
+      'pixelRatio': ScreenUtil().pixelRatio,
+      'screenWidth': ScreenUtil().screenWidth,
+      'screenHeight': ScreenUtil().screenHeight,
+      'bottomBarHeight': ScreenUtil().bottomBarHeight,
+      'textScaleFactor': ScreenUtil().textScaleFactor,
+      'scaleWidth': ScreenUtil().scaleWidth,
+      'scaleHeight': ScreenUtil().scaleHeight,
+      '屏幕宽度的0.2倍': 0.2,
+    });
+
     return Container(
-      height: 333,
+      height: ScreenUtil().setHeight(200),
+      width: ScreenUtil().screenWidth,
       child: Swiper(
         itemCount: swiperDataList.length,
         itemBuilder: (BuildContext context, int index) {
-          return Image.network("${swiperDataList[index]['advertiseImg']}");
+          return Image.network(
+            "${swiperDataList[index]['url']}",
+            fit: BoxFit.cover,
+          );
         },
         pagination: SwiperPagination(),
         autoplay: true,
       ),
+    );
+  }
+}
+
+/**中部菜单 */
+class TopNavigator extends StatelessWidget {
+  final List navigatorList;
+  const TopNavigator({Key key, this.navigatorList}) : super(key: key);
+
+  Widget _gridViewItemUI(BuildContext context, item) {
+    return InkWell(
+      onTap: () {
+        print(item);
+      },
+      child: Column(
+        children: [
+          Image.network(
+            item['imageUrl'],
+            width: ScreenUtil().setWidth(40),
+            height: ScreenUtil().setHeight(40),
+            fit: BoxFit.cover,
+          ),
+          Text(item['title']),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (navigatorList.length > 10) {
+      navigatorList.removeRange(10, navigatorList.length);
+    }
+    return Container(
+      height: ScreenUtil().setHeight(160),
+      color: Colors.white,
+      padding: EdgeInsets.all(3),
+      child: GridView.count(
+        crossAxisCount: 5,
+        padding: EdgeInsets.all(5.0),
+        children:
+            navigatorList.map((e) => _gridViewItemUI(context, e)).toList(),
+      ),
+    );
+  }
+}
+
+/**广告区域 */
+class AdBanner extends StatelessWidget {
+  final String adpicture;
+  const AdBanner({Key key, this.adpicture}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+      child: InkWell(
+          child: Image.network(
+        adpicture,
+        height: ScreenUtil().setHeight(180),
+        width: ScreenUtil().screenWidth,
+        fit: BoxFit.cover,
+      )),
     );
   }
 }

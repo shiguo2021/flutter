@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import '../service/service_methd.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
 
-    getHomeSwiper().then((value) {
+    getHomeData().then((value) {
       setState(() {
         homePageContent = value.toString();
       });

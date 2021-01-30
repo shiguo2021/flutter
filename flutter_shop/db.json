@@ -1,0 +1,38 @@
+{
+
+    "home":{
+        "swipers": [
+            {
+                "id": 1,
+                "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2849780995,1876710512&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 2,
+                "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1597460487,2432615799&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 3,
+                "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic18.nipic.com%2F20111215%2F2672779_124415079338_2.jpg&refer=http%3A%2F%2Fpic18.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614567332&t=6addc3cf8d5c8e24c1ce69928a69e79f"
+            },
+            {
+                "id":4,
+                "url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1226018549,958588379&fm=26&gp=0.jpg"
+            }
+        ],
+        "navigatorList":[
+            {"id":1,"title":"口子酒","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1495134264,786708973&fm=26&gp=0.jpg"},
+            {"id":2,"title":"内招酒","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1288230972,3181069619&fm=26&gp=0.jpg"},
+            {"id":3,"title":"五粮液","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1555879851,2145336868&fm=26&gp=0.jpg"},
+            {"id":4,"title":"李庄白酒","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2530256202,579959934&fm=26&gp=0.jpg"},
+            {"id":5,"title":"天佑德","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1325927949,2082364642&fm=26&gp=0.jpg"},
+            {"id":6,"title":"原浆酒","imageUrl":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1232219429,4022400841&fm=26&gp=0.jpg"},
+            {"id":7,"title":"贵州茅台","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3747419788,3682292058&fm=26&gp=0.jpg"},
+            {"id":8,"title":"泸州老酒","imageUrl":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2589999082,215472108&fm=26&gp=0.jpg"},
+            {"id":9,"title":"汾酒","imageUrl":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1675293159,4011257877&fm=26&gp=0.jpg"},
+            {"id":10,"title":"至尊典藏","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4120461875,2900374073&fm=11&gp=0.jpg"},
+            {"id":11,"title":"红酒","imageUrl":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1897332924,2679168242&fm=26&gp=0.jpg"}
+        ],
+        "adpicture":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1413845724,2055229052&fm=26&gp=0.jpg"
+    }
+    
+}
