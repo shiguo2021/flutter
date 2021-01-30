@@ -3,6 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import '../service/service_methd.dart';
 import 'dart:convert';
 import 'package:flutter_screenutil/screenutil.dart';
+import "package:url_launcher/url_launcher.dart";
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -38,10 +39,17 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.hasData) {
               // var data = json.decode(snapshot.data.toString());
               // print(data);
-              List<Map> swiper = (snapshot.data['swipers'] as List).cast();
+              List<Map> swiper =
+                  (snapshot.data['swipers'] as List).cast(); //强制转换为list
               List navigatorList = snapshot.data['navigatorList'];
               String adpicture = snapshot.data['adpicture'];
-              return Column(
+              Map leader = snapshot.data["kefu"];
+              List goods = snapshot.data["goods"];
+
+              // print({'leader': leader['url'].toString()});
+
+              return SingleChildScrollView(
+                  child: Column(
                 children: <Widget>[
                   SwiperDiy(
                     swiperDataList: swiper,
@@ -51,9 +59,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                   AdBanner(
                     adpicture: adpicture,
+                  ),
+                  LeaderPhone(
+                    phone: leader["phone"].toString(),
+                    url: leader["url"],
+                  ),
+                  Recomment(
+                    goods: goods,
                   )
                 ],
-              );
+              ));
             } else {
               return Center(
                 child: Text(
@@ -74,17 +89,17 @@ class SwiperDiy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print({
-      'defaultSize': ScreenUtil.defaultSize,
-      'pixelRatio': ScreenUtil().pixelRatio,
-      'screenWidth': ScreenUtil().screenWidth,
-      'screenHeight': ScreenUtil().screenHeight,
-      'bottomBarHeight': ScreenUtil().bottomBarHeight,
-      'textScaleFactor': ScreenUtil().textScaleFactor,
-      'scaleWidth': ScreenUtil().scaleWidth,
-      'scaleHeight': ScreenUtil().scaleHeight,
-      '屏幕宽度的0.2倍': 0.2,
-    });
+    // print({
+    //   'defaultSize': ScreenUtil.defaultSize,
+    //   'pixelRatio': ScreenUtil().pixelRatio,
+    //   'screenWidth': ScreenUtil().screenWidth,
+    //   'screenHeight': ScreenUtil().screenHeight,
+    //   'bottomBarHeight': ScreenUtil().bottomBarHeight,
+    //   'textScaleFactor': ScreenUtil().textScaleFactor,
+    //   'scaleWidth': ScreenUtil().scaleWidth,
+    //   'scaleHeight': ScreenUtil().scaleHeight,
+    //   '屏幕宽度的0.2倍': 0.2,
+    // });
 
     return Container(
       height: ScreenUtil().setHeight(200),
@@ -155,14 +170,134 @@ class AdBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+        child: Image.network(
+          adpicture,
+          height: ScreenUtil().setHeight(180),
+          width: ScreenUtil().screenWidth,
+          fit: BoxFit.cover,
+        ));
+  }
+}
+
+/**店长电话 */
+class LeaderPhone extends StatelessWidget {
+  final String phone;
+  final String url;
+  const LeaderPhone({Key key, this.phone, this.url}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       child: InkWell(
-          child: Image.network(
-        adpicture,
-        height: ScreenUtil().setHeight(180),
-        width: ScreenUtil().screenWidth,
-        fit: BoxFit.cover,
-      )),
+        onTap: _launchURL,
+        child: Image.network(
+          url,
+          // width: ScreenUtil().screenWidth,
+          // height: ScreenUtil().setHeight(180),
+          // fit: BoxFit.fill,
+        ),
+      ),
+    );
+  }
+
+  void _launchURL() async {
+    if (await canLaunch(phone)) {
+      await launch('tel:' + phone);
+    } else {
+      throw "url不能访问:模拟器不能拨打电话";
+    }
+
+    // const url = 'https://www.baidu.com';
+    // if (await canLaunch(url)) {
+    //   await launch(url);
+    // } else {
+    //   throw 'Could not launch $url';
+    // }
+  }
+}
+
+/**商品区域 */
+class Recomment extends StatelessWidget {
+  final List goods;
+  const Recomment({Key key, this.goods}) : super(key: key);
+
+  Widget _header() {
+    return Container(
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.only(left: 10),
+      height: ScreenUtil().setHeight(40),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border:
+              Border(bottom: BorderSide(width: 0.5, color: Colors.white12))),
+      child: Text("商品活动",
+          style: TextStyle(
+              fontSize: ScreenUtil().setSp(16), color: Colors.black38)),
+    );
+  }
+
+  Widget _item(index) {
+    return InkWell(
+      onTap: () => {},
+      child: Container(
+        height: ScreenUtil().setHeight(100),
+        width: ScreenUtil().setWidth(120),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(left: BorderSide(width: 1, color: Colors.green))),
+        child: Column(
+          children: [
+            Image.network(
+              goods[index]["url"],
+              height: ScreenUtil().setHeight(80),
+              width: ScreenUtil().setWidth(120),
+              fit: BoxFit.fill,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '¥${goods[index]["price"]}',
+                  style: TextStyle(fontSize: 14, color: Colors.red),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                ),
+                Text("¥${goods[index]["hotprice"]}",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey,
+                      decoration: TextDecoration.lineThrough,
+                    ))
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _listView() {
+    return Container(
+      height: ScreenUtil().setHeight(100),
+      color: Colors.white,
+      child: ListView.builder(
+        itemBuilder: (context, index) => _item(index),
+        itemCount: goods.length,
+        scrollDirection: Axis.horizontal,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: ScreenUtil().setHeight(140),
+      width: ScreenUtil().screenWidth,
+      child: Column(
+        children: [_header(), _listView()],
+      ),
     );
   }
 }

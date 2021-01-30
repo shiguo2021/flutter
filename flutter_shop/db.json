@@ -2,22 +2,10 @@
 
     "home":{
         "swipers": [
-            {
-                "id": 1,
-                "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2849780995,1876710512&fm=26&gp=0.jpg"
-            },
-            {
-                "id": 2,
-                "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1597460487,2432615799&fm=26&gp=0.jpg"
-            },
-            {
-                "id": 3,
-                "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic18.nipic.com%2F20111215%2F2672779_124415079338_2.jpg&refer=http%3A%2F%2Fpic18.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614567332&t=6addc3cf8d5c8e24c1ce69928a69e79f"
-            },
-            {
-                "id":4,
-                "url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1226018549,958588379&fm=26&gp=0.jpg"
-            }
+            {"id": 1,"url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2849780995,1876710512&fm=26&gp=0.jpg"},
+            {"id": 2,"url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1597460487,2432615799&fm=26&gp=0.jpg"},
+            {"id": 3,"url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic18.nipic.com%2F20111215%2F2672779_124415079338_2.jpg&refer=http%3A%2F%2Fpic18.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614567332&t=6addc3cf8d5c8e24c1ce69928a69e79f"},
+            {"id":4,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1226018549,958588379&fm=26&gp=0.jpg"}
         ],
         "navigatorList":[
             {"id":1,"title":"口子酒","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1495134264,786708973&fm=26&gp=0.jpg"},
@@ -32,7 +20,19 @@
             {"id":10,"title":"至尊典藏","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4120461875,2900374073&fm=11&gp=0.jpg"},
             {"id":11,"title":"红酒","imageUrl":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1897332924,2679168242&fm=26&gp=0.jpg"}
         ],
-        "adpicture":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1413845724,2055229052&fm=26&gp=0.jpg"
+        "adpicture":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1413845724,2055229052&fm=26&gp=0.jpg",
+        "kefu":{
+            "url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1942938887,3055701813&fm=26&gp=0.jpg",
+            "phone":17677885592
+        },
+        "goods":[
+            {"id":1,"title":"鸡蛋","price":100,"hotprice":200,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2731574161,3391986480&fm=26&gp=0.jpg"},
+            {"id":2,"title":"猪肉","price":12,"hotprice":23,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3525294997,3112360321&fm=26&gp=0.jpg"},
+            {"id":3,"title":"茶叶","price":8,"hotprice":9.02,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3044154774,1617735530&fm=26&gp=0.jpg"},
+            {"id":4,"title":"洋白菜","price":0.3,"hotprice":0.5,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2329887869,380610672&fm=26&gp=0.jpg"},
+            {"id":5,"title":"胡萝卜","price":23,"hotprice":34,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3333386295,578987958&fm=26&gp=0.jpg"},
+            {"id":6,"title":"大礼包","price":98,"hotprice":299,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=168294643,1161946077&fm=26&gp=0.jpg"}
+        ]
     }
     
 }
