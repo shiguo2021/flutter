@@ -31,7 +31,7 @@ class _IndexPageState extends State<IndexPage> {
         label: '会员中心')
   ];
 
-  final List pages = [
+  final List<Widget> pages = [
     HomePage(),
     CatgoryPage(),
     CartPage(),
@@ -51,7 +51,13 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: currentPage,
+      // body: currentPage,
+      body: IndexedStack(
+        //替换用于保持页面状态
+        index: currentIndex,
+        children: pages,
+      ),
+
       backgroundColor: Color.fromRGBO(245, 245, 245, 1),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

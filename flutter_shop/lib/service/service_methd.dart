@@ -33,3 +33,16 @@ Future getHomeData() async {
     }
   } catch (e) {}
 }
+
+/**大括号为可选参数 */
+Future getRequest(url, {queryParameters}) async {
+  try {
+    Response response =
+        await new Dio().get(url_base + url, queryParameters: queryParameters);
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception("后端接口出现异常");
+    }
+  } catch (e) {}
+}

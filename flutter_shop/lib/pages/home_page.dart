@@ -12,16 +12,32 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   String homePageContent = '正在获取数据...';
+
+  int page = 1;
+  List<Map> hotGoods = [];
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    getHomeData().then((value) {
+    // getHomeData().then((value) {
+    //   setState(() {
+    //     print({'initState重新加载首页': value});
+    //   });
+    // });
+
+    getRequest("hotGoods", queryParameters: {"_page": page, "_limit": 6})
+        .then((value) {
+      print((value as List).cast());
       setState(() {
-        // print(value.toString());
+        page++;
+        hotGoods.addAll((value as List).cast());
       });
     });
   }
@@ -45,6 +61,7 @@ class _HomePageState extends State<HomePage> {
               String adpicture = snapshot.data['adpicture'];
               Map leader = snapshot.data["kefu"];
               List goods = snapshot.data["goods"];
+              Map floor = snapshot.data["floor"];
 
               // print({'leader': leader['url'].toString()});
 
@@ -67,7 +84,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Recomment(
                         goods: goods,
-                      )
+                      ),
+                      FLoorGoods(
+                        title: floor["title"],
+                        goods: floor["list"],
+                      ),
+                      _getHotGoods()
                     ],
                   ));
             } else {
@@ -80,6 +102,80 @@ class _HomePageState extends State<HomePage> {
             }
           },
         ));
+  }
+
+  Widget _getHotGoods() {
+    return Container(
+      child: Column(
+        children: [_hotTitle, _hotGoods()],
+      ),
+    );
+  }
+
+  Widget _hotTitle = Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(5),
+      color: Colors.transparent,
+      child: Text(
+        "火爆专区",
+        style: TextStyle(
+          color: Colors.purple,
+          fontSize: ScreenUtil().setSp(16),
+        ),
+      ));
+
+  Widget _hotGoods() {
+    if (hotGoods.length == 0) {
+      return Text('');
+    }
+
+    List<Widget> hotGoodsWidget = hotGoods.map((e) {
+      return InkWell(
+          child: Container(
+              width: ScreenUtil().setWidth(200),
+              height: ScreenUtil().setHeight(300),
+              padding: EdgeInsets.all(5.0),
+              // margin: EdgeInsets.only(bottom: 3.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.network(
+                      e['url'],
+                      width: ScreenUtil().setWidth(200),
+                      fit: BoxFit.cover,
+                    ),
+                    Text(
+                      e['title'],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('¥' + e['price'].toString()),
+                        Text(
+                          '¥' + e["marketprice"].toString(),
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    )
+                  ])));
+    }).toList();
+
+    return Wrap(
+      children: hotGoodsWidget,
+      spacing: 3,
+      runSpacing: 5,
+      // runAlignment: WrapAlignment.spaceAround,
+      // verticalDirection: VerticalDirection.down,
+      alignment: WrapAlignment.center,
+    );
   }
 }
 
@@ -316,6 +412,98 @@ class Recomment extends StatelessWidget {
       child: Column(
         children: [_header(), _listView()],
       ),
+    );
+  }
+}
+
+/**楼层商品 */
+class FLoorGoods extends StatelessWidget {
+  final String title;
+  final List goods;
+  const FLoorGoods({Key key, this.title, this.goods}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [_header(), _floor1(), _floor2()],
+      ),
+    );
+  }
+
+  Widget _header() {
+    return Container(
+      padding: EdgeInsets.all(8),
+      child: Image.network(title),
+    );
+  }
+
+  Widget _floor1() {
+    return Row(
+      children: [
+        InkWell(
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.fromLTRB(8, 0, 4, 8),
+            width: ScreenUtil().screenWidth / 2,
+            height: ScreenUtil().setHeight(300),
+            child: Image.network(
+              goods[0]['url'],
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Column(
+          children: [
+            InkWell(
+                child: Container(
+              width: ScreenUtil().screenWidth / 2,
+              height: ScreenUtil().setHeight(150),
+              padding: EdgeInsets.fromLTRB(4, 0, 8, 4),
+              child: Image.network(
+                goods[1]['url'],
+                fit: BoxFit.cover,
+              ),
+            )),
+            InkWell(
+                child: Container(
+              width: ScreenUtil().screenWidth / 2,
+              height: ScreenUtil().setHeight(150),
+              padding: EdgeInsets.fromLTRB(4, 4, 8, 8),
+              child: Image.network(
+                goods[2]['url'],
+                fit: BoxFit.cover,
+              ),
+            ))
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _floor2() {
+    return Row(
+      children: [
+        Container(
+          width: ScreenUtil().screenWidth / 2,
+          height: ScreenUtil().setHeight(150),
+          padding: EdgeInsets.fromLTRB(8, 0, 4, 8),
+          child: InkWell(
+            child: Image.network(goods[3]['url'], fit: BoxFit.cover),
+          ),
+        ),
+        Container(
+          width: ScreenUtil().screenWidth / 2,
+          height: ScreenUtil().setHeight(150),
+          padding: EdgeInsets.fromLTRB(4, 0, 8, 8),
+          child: InkWell(
+            child: Image.network(
+              goods[4]['url'],
+              fit: BoxFit.cover,
+            ),
+          ),
+        )
+      ],
     );
   }
 }
