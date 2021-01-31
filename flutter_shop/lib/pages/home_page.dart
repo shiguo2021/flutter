@@ -49,26 +49,27 @@ class _HomePageState extends State<HomePage> {
               // print({'leader': leader['url'].toString()});
 
               return SingleChildScrollView(
+                  padding: EdgeInsets.only(bottom: 100),
                   child: Column(
-                children: <Widget>[
-                  SwiperDiy(
-                    swiperDataList: swiper,
-                  ),
-                  TopNavigator(
-                    navigatorList: navigatorList,
-                  ),
-                  AdBanner(
-                    adpicture: adpicture,
-                  ),
-                  LeaderPhone(
-                    phone: leader["phone"].toString(),
-                    url: leader["url"],
-                  ),
-                  Recomment(
-                    goods: goods,
-                  )
-                ],
-              ));
+                    children: <Widget>[
+                      SwiperDiy(
+                        swiperDataList: swiper,
+                      ),
+                      TopNavigator(
+                        navigatorList: navigatorList,
+                      ),
+                      AdBanner(
+                        adpicture: adpicture,
+                      ),
+                      LeaderPhone(
+                        phone: leader["phone"].toString(),
+                        url: leader["url"],
+                      ),
+                      Recomment(
+                        goods: goods,
+                      )
+                    ],
+                  ));
             } else {
               return Center(
                 child: Text(
@@ -229,29 +230,41 @@ class Recomment extends StatelessWidget {
       height: ScreenUtil().setHeight(40),
       decoration: BoxDecoration(
           color: Colors.white,
-          border:
-              Border(bottom: BorderSide(width: 0.5, color: Colors.white12))),
+          border: Border(bottom: BorderSide(width: 1, color: Colors.green))),
       child: Text("商品活动",
           style: TextStyle(
               fontSize: ScreenUtil().setSp(16), color: Colors.black38)),
     );
   }
 
-  Widget _item(index) {
-    return InkWell(
-      onTap: () => {},
+  Widget _item(context, index) {
+    var item = InkWell(
+      onTap: () => {
+        // showDialog(
+        //   context: context,
+        //   builder: (context) => AlertDialog(
+        //     title: Text(goods[index]['title']),
+        //   ),
+        // )
+
+        Scaffold.of(context)
+            .showSnackBar(SnackBar(content: Text(goods[index]['title'])))
+      },
       child: Container(
         height: ScreenUtil().setHeight(100),
         width: ScreenUtil().setWidth(120),
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(left: BorderSide(width: 1, color: Colors.green))),
+            border: Border(
+                left: BorderSide(width: 1, color: Colors.green),
+                bottom: BorderSide(width: 1, color: Colors.green))),
         child: Column(
           children: [
             Image.network(
               goods[index]["url"],
-              height: ScreenUtil().setHeight(80),
-              width: ScreenUtil().setWidth(120),
+              height: ScreenUtil().setHeight(60),
+              width: ScreenUtil().setWidth(100),
               fit: BoxFit.fill,
             ),
             Row(
@@ -276,6 +289,11 @@ class Recomment extends StatelessWidget {
         ),
       ),
     );
+
+    return Tooltip(
+      message: goods[index]['title'],
+      child: item,
+    );
   }
 
   Widget _listView() {
@@ -283,7 +301,7 @@ class Recomment extends StatelessWidget {
       height: ScreenUtil().setHeight(100),
       color: Colors.white,
       child: ListView.builder(
-        itemBuilder: (context, index) => _item(index),
+        itemBuilder: (context, index) => _item(context, index),
         itemCount: goods.length,
         scrollDirection: Axis.horizontal,
       ),
