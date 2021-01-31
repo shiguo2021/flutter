@@ -4,6 +4,7 @@ import '../service/service_methd.dart';
 import 'dart:convert';
 import 'package:flutter_screenutil/screenutil.dart';
 import "package:url_launcher/url_launcher.dart";
+import "package:flutter_easyrefresh/easy_refresh.dart";
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -31,77 +32,92 @@ class _HomePageState extends State<HomePage>
     //     print({'initState重新加载首页': value});
     //   });
     // });
-
-    getRequest("hotGoods", queryParameters: {"_page": page, "_limit": 6})
-        .then((value) {
-      print((value as List).cast());
-      setState(() {
-        page++;
-        hotGoods.addAll((value as List).cast());
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('天上人间'),
-        ),
-        backgroundColor: Colors.amberAccent,
-        body: FutureBuilder(
-          future: getHomeData(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              // var data = json.decode(snapshot.data.toString());
-              // print(data);
-              List<Map> swiper =
-                  (snapshot.data['swipers'] as List).cast(); //强制转换为list
-              List navigatorList = snapshot.data['navigatorList'];
-              String adpicture = snapshot.data['adpicture'];
-              Map leader = snapshot.data["kefu"];
-              List goods = snapshot.data["goods"];
-              Map floor = snapshot.data["floor"];
+      appBar: AppBar(
+        title: Text('天上人间'),
+      ),
+      backgroundColor: Colors.amberAccent,
+      body: FutureBuilder(
+        future: getHomeData(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            // var data = json.decode(snapshot.data.toString());
+            // print(data);
+            List<Map> swiper =
+                (snapshot.data['swipers'] as List).cast(); //强制转换为list
+            List navigatorList = snapshot.data['navigatorList'];
+            String adpicture = snapshot.data['adpicture'];
+            Map leader = snapshot.data["kefu"];
+            List goods = snapshot.data["goods"];
+            Map floor = snapshot.data["floor"];
 
-              // print({'leader': leader['url'].toString()});
+            // print({'leader': leader['url'].toString()});
 
-              return SingleChildScrollView(
-                  padding: EdgeInsets.only(bottom: 100),
-                  child: Column(
-                    children: <Widget>[
-                      SwiperDiy(
-                        swiperDataList: swiper,
-                      ),
-                      TopNavigator(
-                        navigatorList: navigatorList,
-                      ),
-                      AdBanner(
-                        adpicture: adpicture,
-                      ),
-                      LeaderPhone(
-                        phone: leader["phone"].toString(),
-                        url: leader["url"],
-                      ),
-                      Recomment(
-                        goods: goods,
-                      ),
-                      FLoorGoods(
-                        title: floor["title"],
-                        goods: floor["list"],
-                      ),
-                      _getHotGoods()
-                    ],
-                  ));
-            } else {
-              return Center(
-                child: Text(
-                  '加载中...' + homePageContent,
-                  overflow: TextOverflow.fade,
+            // EasyRefresh(
+            //   child: ScrollView(),
+            // )
+
+            return EasyRefresh(
+              header: PhoenixHeader(), //头部刷新
+              footer: TaurusFooter(),
+              // header: MaterialHeader(),
+              // footer: MaterialFooter(),
+              child: SingleChildScrollView(
+                padding: EdgeInsets.only(bottom: 100),
+                child: Column(
+                  children: <Widget>[
+                    SwiperDiy(
+                      swiperDataList: swiper,
+                    ),
+                    TopNavigator(
+                      navigatorList: navigatorList,
+                    ),
+                    AdBanner(
+                      adpicture: adpicture,
+                    ),
+                    LeaderPhone(
+                      phone: leader["phone"].toString(),
+                      url: leader["url"],
+                    ),
+                    Recomment(
+                      goods: goods,
+                    ),
+                    FLoorGoods(
+                      title: floor["title"],
+                      goods: floor["list"],
+                    ),
+                    _getHotGoods()
+                  ],
                 ),
-              );
-            }
-          },
-        ));
+              ),
+              onRefresh: () async {},
+              onLoad: () async {
+                await getRequest("hotGoods",
+                        queryParameters: {"_page": page, "_limit": 6})
+                    .then((value) {
+                  print((value as List).cast());
+                  setState(() {
+                    page++;
+                    hotGoods.addAll((value as List).cast());
+                  });
+                });
+              },
+            );
+          } else {
+            return Center(
+              child: Text(
+                '加载中...' + homePageContent,
+                overflow: TextOverflow.fade,
+              ),
+            );
+          }
+        },
+      ),
+    );
   }
 
   Widget _getHotGoods() {
@@ -174,7 +190,7 @@ class _HomePageState extends State<HomePage>
       runSpacing: 5,
       // runAlignment: WrapAlignment.spaceAround,
       // verticalDirection: VerticalDirection.down,
-      alignment: WrapAlignment.center,
+      alignment: WrapAlignment.start,
     );
   }
 }
