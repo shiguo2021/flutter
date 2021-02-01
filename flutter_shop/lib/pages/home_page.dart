@@ -67,7 +67,6 @@ class _HomePageState extends State<HomePage>
               // header: MaterialHeader(),
               // footer: MaterialFooter(),
               child: SingleChildScrollView(
-                padding: EdgeInsets.only(bottom: 100),
                 child: Column(
                   children: <Widget>[
                     SwiperDiy(
