@@ -58,6 +58,43 @@
         {"id":11,"title":"伏特加","price":19,"marketprice":30,"url":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3838604737,673191267&fm=26&gp=0.jpg"},
         {"id":12,"title":"鸡尾酒","price":2000,"marketprice":2000,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1039663084,1508377848&fm=26&gp=0.jpg"},
         {"id":13,"title":"RIO","price":5,"marketprice":5,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2299289826,3273472670&fm=26&gp=0.jpg"}
-    ]
+    ],
+    "category":{
+        "data":[
+            {
+                "mallCategoryId":"1",
+                "mallCategoryName":"白酒1",
+                "bxMallSubDto":[
+                    {
+                        "name":"白酒1-1-1"
+                    }
+                ],
+                "comments":null,
+                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1904156563,393361692&fm=26&gp=0.jpg"
+            },
+            {
+                "mallCategoryId":"2",
+                "mallCategoryName":"白酒2",
+                "bxMallSubDto":[
+                    {
+                        "name":"白酒2-1-1"
+                    }
+                ],
+                "comments":null,
+                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2409139952,2591148999&fm=11&gp=0.jpg"
+            },
+            {
+                "mallCategoryId":"3",
+                "mallCategoryName":"白酒3",
+                "bxMallSubDto":[
+                    {
+                        "name":"白酒3-1-1"
+                    }
+                ],
+                "comments":null,
+                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2106099848,2414025495&fm=26&gp=0.jpg"
+            }
+        ]
+    }
     
 }
