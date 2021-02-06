@@ -17,3 +17,19 @@ class User {
     return _$UserToJson(this);
   }
 }
+
+@JsonSerializable()
+class Animal {
+  List<User> list;
+  int sex;
+
+  Animal({this.list, this.sex});
+
+  factory Animal.fromJson(Map<String, dynamic> json) {
+    return _$AnimalFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() {
+    return _$AnimalToJson(this);
+  }
+}

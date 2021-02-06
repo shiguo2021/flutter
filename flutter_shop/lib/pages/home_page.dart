@@ -482,15 +482,16 @@ class FLoorGoods extends StatelessWidget {
               ),
             )),
             InkWell(
-                child: Container(
-              width: ScreenUtil().screenWidth / 2,
-              height: ScreenUtil().setHeight(150),
-              padding: EdgeInsets.fromLTRB(4, 4, 8, 8),
-              child: Image.network(
-                goods[2]['url'],
-                fit: BoxFit.cover,
+              child: Container(
+                width: ScreenUtil().screenWidth / 2,
+                height: ScreenUtil().setHeight(150),
+                padding: EdgeInsets.fromLTRB(4, 4, 8, 8),
+                child: Image.network(
+                  goods[2]['url'],
+                  fit: BoxFit.cover,
+                ),
               ),
-            ))
+            )
           ],
         )
       ],

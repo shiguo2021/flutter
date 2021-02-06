@@ -95,6 +95,22 @@
                 "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2106099848,2414025495&fm=26&gp=0.jpg"
             }
         ]
+    },
+    "categorys":{
+        "data":[
+            {"name":"白酒"},
+            {"name":"啤酒"},
+            {"name":"葡萄酒"},
+            {"name":"清酒洋酒"},
+            {"name":"保健酒"},
+            {"name":"预调酒"},
+            {"name":"下酒小菜"},
+            {"name":"饮料"},
+            {"name":"乳制品"},
+            {"name":"休闲零食"},
+            {"name":"粮油调味"}
+        ]
     }
+    
     
 }
