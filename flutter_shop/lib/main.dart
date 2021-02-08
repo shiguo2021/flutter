@@ -3,7 +3,21 @@ import './pages/index_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() => runApp(MyApp());
+import "./provider/counter.dart";
+import 'package:provider/provider.dart';
+
+void main() {
+  // Provider.debugCheckInvalidValueType = null;
+  runApp(
+    MultiProvider(
+      providers: [
+        // Provider<Counter>(create: (_) => Counter()),
+        ChangeNotifierProvider.value(value: Counter())
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override

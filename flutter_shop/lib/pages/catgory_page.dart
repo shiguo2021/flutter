@@ -43,7 +43,7 @@ class CategoryNavLeft extends StatefulWidget {
 }
 
 class _CategoryNavLeftState extends State<CategoryNavLeft> {
-  List<CategoryModel> list;
+  List<CategoryModel> list = [];
 
   @override
   void initState() {
