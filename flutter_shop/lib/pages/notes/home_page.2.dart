@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../service/service_methd.dart';
+import '../../service/service_methd.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);

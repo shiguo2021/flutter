@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/CategoryBigModel.dart';
-import '../service/service_methd.dart';
+import '../../model/CategoryBigModel.dart';
+import '../../service/service_methd.dart';
 import "dart:convert";
 
 class CatgoryPage extends StatefulWidget {
