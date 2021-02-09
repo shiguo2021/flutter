@@ -2,10 +2,12 @@ import "package:flutter/material.dart";
 
 class Counter with ChangeNotifier {
   int _value = 3;
-
+  String _name = "sg";
   int get value => _value;
 
-  // Counter(this._value);
+  String get name => _name;
+
+  // Counter(this.value);
 
   void add() {
     _value++;

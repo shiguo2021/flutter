@@ -375,27 +375,29 @@ class Recomment extends StatelessWidget {
           children: [
             Image.network(
               goods[index]["url"],
-              height: ScreenUtil().setHeight(60),
+              height: ScreenUtil().setHeight(60) - 3,
               width: ScreenUtil().setWidth(100),
               fit: BoxFit.fill,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '¥${goods[index]["price"]}',
-                  style: TextStyle(fontSize: 14, color: Colors.red),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                ),
-                Text("¥${goods[index]["hotprice"]}",
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey,
-                      decoration: TextDecoration.lineThrough,
-                    ))
-              ],
+            Container(
+              height: ScreenUtil().setHeight(20),
+              color: Colors.purple,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('¥${goods[index]["price"]}',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.red,
+                      )),
+                  Text("¥${goods[index]["hotprice"]}",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.grey,
+                        decoration: TextDecoration.lineThrough,
+                      ))
+                ],
+              ),
             )
           ],
         ),

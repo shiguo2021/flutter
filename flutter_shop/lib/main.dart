@@ -13,6 +13,9 @@ void main() {
       providers: [
         // Provider<Counter>(create: (_) => Counter()),
         ChangeNotifierProvider.value(value: Counter())
+        // Provider<Counter>(
+        //   create: (_) => Counter(),
+        // ),
       ],
       child: MyApp(),
     ),

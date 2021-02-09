@@ -26,8 +26,7 @@ class Number extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 200),
       child: Text(
-        // '${Provider.of<Counter>(context).value}',
-        '${context.watch<Counter>().value}',
+        '${context.watch<Counter>().name}${Provider.of<Counter>(context).value}',
         style: Theme.of(context).textTheme.caption,
       ),
     );
@@ -41,6 +40,7 @@ class MyButton extends StatelessWidget {
       child: RaisedButton(
         onPressed: () {
           context.read<Counter>().add();
+          // Provider.of<Counter>(context).add();
         },
         child: Text('递增'),
       ),

@@ -55,7 +55,7 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
     getRequest('categorys').then((value) {
       print(value);
       CategoryModels categoryModels = CategoryModels.fromJson(value);
-      print(categoryModels.data);
+      // print(categoryModels.data);
       setState(() {
         list = categoryModels.data;
       });
