@@ -376,8 +376,10 @@ class Recomment extends StatelessWidget {
             Expanded(
               child: Image.network(
                 goods[index]["url"],
-                height: ScreenUtil().setHeight(60),
-                width: ScreenUtil().setWidth(100),
+                // height: ScreenUtil().setHeight(600),
+                // width: ScreenUtil().setWidth(1000),  //这里都是可以的，相当于flex：1
+                height: double.maxFinite,
+                width: double.maxFinite,
                 fit: BoxFit.fill,
               ),
             ),
