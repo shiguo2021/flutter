@@ -7,11 +7,17 @@ part of 'CategoryModel.dart';
 // **************************************************************************
 
 CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
-  return CategoryModel(json['name'] as String);
+  return CategoryModel(
+      json['name'] as String,
+      (json['children'] as List)
+          ?.map((e) => e == null
+              ? null
+              : CategoryChildModel.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$CategoryModelToJson(CategoryModel instance) =>
-    <String, dynamic>{'name': instance.name};
+    <String, dynamic>{'name': instance.name, 'children': instance.children};
 
 CategoryModels _$CategoryModelsFromJson(Map<String, dynamic> json) {
   return CategoryModels((json['data'] as List)
@@ -22,3 +28,10 @@ CategoryModels _$CategoryModelsFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$CategoryModelsToJson(CategoryModels instance) =>
     <String, dynamic>{'data': instance.data};
+
+CategoryChildModel _$CategoryChildModelFromJson(Map<String, dynamic> json) {
+  return CategoryChildModel(json['id'] as int, json['name'] as String);
+}
+
+Map<String, dynamic> _$CategoryChildModelToJson(CategoryChildModel instance) =>
+    <String, dynamic>{'id': instance.id, 'name': instance.name};

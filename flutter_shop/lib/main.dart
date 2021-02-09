@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/provider/category_child.dart';
 import './pages/index_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,10 +13,8 @@ void main() {
     MultiProvider(
       providers: [
         // Provider<Counter>(create: (_) => Counter()),
-        ChangeNotifierProvider.value(value: Counter())
-        // Provider<Counter>(
-        //   create: (_) => Counter(),
-        // ),
+        ChangeNotifierProvider.value(value: Counter()),
+        ChangeNotifierProvider.value(value: CategoryChild())
       ],
       child: MyApp(),
     ),

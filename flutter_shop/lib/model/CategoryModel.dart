@@ -5,7 +5,8 @@ part "CategoryModel.g.dart";
 @JsonSerializable()
 class CategoryModel {
   String name;
-  CategoryModel(this.name);
+  List<CategoryChildModel> children;
+  CategoryModel(this.name, this.children);
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryModelFromJson(json);
@@ -22,4 +23,15 @@ class CategoryModels {
       _$CategoryModelsFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryModelsToJson(this);
+}
+
+@JsonSerializable()
+class CategoryChildModel {
+  int id;
+  String name;
+  CategoryChildModel(this.id, this.name);
+
+  factory CategoryChildModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryChildModelFromJson(json);
+  Map<String, dynamic> toJson() => _$CategoryChildModelToJson(this);
 }
