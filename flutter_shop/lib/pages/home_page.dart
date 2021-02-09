@@ -373,11 +373,13 @@ class Recomment extends StatelessWidget {
                 bottom: BorderSide(width: 1, color: Colors.green))),
         child: Column(
           children: [
-            Image.network(
-              goods[index]["url"],
-              height: ScreenUtil().setHeight(60) - 3,
-              width: ScreenUtil().setWidth(100),
-              fit: BoxFit.fill,
+            Expanded(
+              child: Image.network(
+                goods[index]["url"],
+                height: ScreenUtil().setHeight(60),
+                width: ScreenUtil().setWidth(100),
+                fit: BoxFit.fill,
+              ),
             ),
             Container(
               height: ScreenUtil().setHeight(20),
@@ -385,17 +387,24 @@ class Recomment extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('¥${goods[index]["price"]}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.red,
-                      )),
-                  Text("¥${goods[index]["hotprice"]}",
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ))
+                  Text(
+                    '¥${goods[index]["price"]}',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.red,
+                      backgroundColor: Colors.orange,
+                    ),
+                  ),
+                  Container(width: 10),
+                  Text(
+                    "¥${goods[index]["hotprice"]}",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey,
+                      backgroundColor: Colors.orange,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                  ),
                 ],
               ),
             )
