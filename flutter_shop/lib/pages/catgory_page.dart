@@ -5,7 +5,7 @@ import "../service/service_methd.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import 'package:provider/provider.dart';
-import '../provider/category_child.dart';
+import '../provider/category_provider.dart';
 
 class CatgoryPage extends StatefulWidget {
   CatgoryPage({Key key}) : super(key: key);
@@ -61,14 +61,14 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
 
   void loadData() {
     getRequest('categorys').then((value) {
-      print(value);
+      // print(value);
       CategoryModels categoryModels = CategoryModels.fromJson(value);
       // print(categoryModels.data);
       setState(() {
         list = categoryModels.data;
       });
 
-      context.read<CategoryChild>().setChildren(list[0].children);
+      context.read<CategoryProvider>().setChildren(list[0].children);
     });
   }
 
@@ -99,14 +99,14 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
           clickIndex = index;
         });
 
-        context.read<CategoryChild>().setChildren(list[index].children);
+        context.read<CategoryProvider>().setChildren(list[index].children);
       },
       child: Container(
         height: ScreenUtil().setHeight(44),
         padding: EdgeInsets.only(left: 10),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: index == clickIndex ? Colors.black38 : Colors.white,
+          color: index == clickIndex ? Colors.black12 : Colors.white,
           border: Border(
             bottom: BorderSide(
               width: 1,
@@ -133,15 +133,8 @@ class RightCategoryNav extends StatefulWidget {
   _RightCategoryNavState createState() => _RightCategoryNavState();
 }
 
-class _RightCategoryNavState extends State<RightCategoryNav>
-    with AutomaticKeepAliveClientMixin {
+class _RightCategoryNavState extends State<RightCategoryNav> {
   // List list = ['贵州茅台', '五粮液', '汾酒', '洋河', '北京二锅头', '青梅酒', '古井贡酒', '拉菲'];
-
-  int clickIndex = 0;
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
@@ -162,26 +155,27 @@ class _RightCategoryNavState extends State<RightCategoryNav>
         itemBuilder: (context, index) {
           return buildItem(index);
         },
-        itemCount: context.watch<CategoryChild>().categoryChildren.length,
+        itemCount: context.watch<CategoryProvider>().categoryChildren.length,
       ),
     );
   }
 
   Widget buildItem(int index) {
+    CategoryChildModel model =
+        context.watch<CategoryProvider>().categoryChildren[index];
+
     return InkWell(
       onTap: () {
-        setState(() {
-          clickIndex = index;
-        });
+        context.read<CategoryProvider>().childIsSelected(index);
       },
       child: Container(
         // color: Colors.red,
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Text(
-          context.watch<CategoryChild>().categoryChildren[index].name,
+          model.name,
           style: TextStyle(
-            color: clickIndex == index ? Colors.red : Colors.black26,
+            color: model.isSelected == true ? Colors.red : Colors.black26,
           ),
         ),
       ),

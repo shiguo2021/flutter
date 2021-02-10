@@ -30,8 +30,15 @@ Map<String, dynamic> _$CategoryModelsToJson(CategoryModels instance) =>
     <String, dynamic>{'data': instance.data};
 
 CategoryChildModel _$CategoryChildModelFromJson(Map<String, dynamic> json) {
-  return CategoryChildModel(json['id'] as int, json['name'] as String);
+  return CategoryChildModel(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      isSelected: json['isSelected'] as bool);
 }
 
 Map<String, dynamic> _$CategoryChildModelToJson(CategoryChildModel instance) =>
-    <String, dynamic>{'id': instance.id, 'name': instance.name};
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'isSelected': instance.isSelected
+    };

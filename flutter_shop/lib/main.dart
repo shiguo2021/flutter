@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/provider/category_child.dart';
+import 'package:flutter_shop/provider/category_provider.dart';
 import './pages/index_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -14,7 +14,9 @@ void main() {
       providers: [
         // Provider<Counter>(create: (_) => Counter()),
         ChangeNotifierProvider.value(value: Counter()),
-        ChangeNotifierProvider.value(value: CategoryChild())
+        // ChangeNotifierProvider.value(value: CategoryChild()), //有用
+        ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        // Provider<CategoryChild>.value(value: cc)
       ],
       child: MyApp(),
     ),

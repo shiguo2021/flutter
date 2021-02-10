@@ -29,7 +29,12 @@ class CategoryModels {
 class CategoryChildModel {
   int id;
   String name;
-  CategoryChildModel(this.id, this.name);
+  bool isSelected;
+  CategoryChildModel({
+    this.id,
+    this.name,
+    this.isSelected,
+  });
 
   factory CategoryChildModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryChildModelFromJson(json);
