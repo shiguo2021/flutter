@@ -4,7 +4,7 @@ import './pages/index_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import "./provider/counter.dart";
+import 'provider/counter_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -13,7 +13,7 @@ void main() {
     MultiProvider(
       providers: [
         // Provider<Counter>(create: (_) => Counter()),
-        ChangeNotifierProvider.value(value: Counter()),
+        ChangeNotifierProvider.value(value: CounterProvider()),
         // ChangeNotifierProvider.value(value: CategoryChild()), //有用
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
         // Provider<CategoryChild>.value(value: cc)

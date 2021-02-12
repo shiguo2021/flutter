@@ -7,7 +7,7 @@ class MemberPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('会员中心' + context.watch<Counter>().value.toString()),
+        child: Text('会员中心' + context.watch<CounterProvider>().value.toString()),
       ),
     );
   }

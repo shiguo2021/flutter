@@ -6,19 +6,30 @@ part "CategoryModel.g.dart";
 class CategoryModel {
   String name;
   List<CategoryChildModel> children;
-  CategoryModel(this.name, this.children);
+  bool isSelected = false;
+  CategoryModel(this.name, this.children, this.isSelected);
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryModelToJson(this);
 
-  static List<CategoryModel> fromJsonList(dynamic json) {
+  static List<CategoryModel> listFromJson(dynamic json) {
     return (json as List)
         ?.map(
           (e) => e == null ? null : CategoryModel.fromJson(e),
         )
         ?.toList();
+  }
+
+  static List<Map<String, dynamic>> listToJson(List<CategoryModel> models) {
+    return models
+        .map((instance) => <String, dynamic>{
+              'name': instance.name,
+              'isSelected': instance.isSelected,
+              'children': instance.children,
+            })
+        .toList();
   }
 }
 
@@ -37,11 +48,11 @@ class CategoryModels {
 class CategoryChildModel {
   int id;
   String name;
-  bool isSelected;
+  bool isSelected = false;
   CategoryChildModel({
     this.id,
     this.name,
-    this.isSelected = false,
+    this.isSelected,
   });
 
   factory CategoryChildModel.fromJson(Map<String, dynamic> json) =>

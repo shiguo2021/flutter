@@ -44,5 +44,7 @@ Future getRequest(url, {queryParameters}) async {
     } else {
       throw Exception("后端接口出现异常");
     }
-  } catch (e) {}
+  } catch (e) {
+    throw e;
+  }
 }

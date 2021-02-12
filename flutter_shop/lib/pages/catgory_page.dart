@@ -54,8 +54,8 @@ class CategoryNavLeft extends StatefulWidget {
 }
 
 class _CategoryNavLeftState extends State<CategoryNavLeft> {
-  List<CategoryModel> list = [];
-  int clickIndex = 0;
+  // List<CategoryModel> list = [];
+  // int clickIndex = 0;
   @override
   void initState() {
     loadData();
@@ -67,14 +67,16 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
       // print(value);
       // CategoryModels categoryModels = CategoryModels.fromJson(value);
       List<CategoryModel> categoryModels =
-          CategoryModel.fromJsonList(value["data"]);
-      // print(categoryModels.data);
-      setState(() {
-        // list = categoryModels.data;
-        list = categoryModels;
-      });
+          CategoryModel.listFromJson(value["data"]);
 
-      context.read<CategoryProvider>().setChildren(list[0].children);
+      context.read<CategoryProvider>().initData(categoryModels);
+
+      // setState(() {
+      //   // list = categoryModels.data;
+      //   list = categoryModels;
+      // });
+
+      // context.read<CategoryProvider>().categoryClickAt();
     });
   }
 
@@ -93,26 +95,26 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
       ),
       child: ListView.builder(
         itemBuilder: (context, index) => buildItem(index),
-        itemCount: list.length,
+        itemCount: context.watch<CategoryProvider>().categorys.length,
       ),
     );
   }
 
   Widget buildItem(int index) {
+    CategoryModel categroyModel =
+        context.watch<CategoryProvider>().categorys[index];
+
     return InkWell(
       onTap: () {
-        setState(() {
-          clickIndex = index;
-        });
-
-        context.read<CategoryProvider>().setChildren(list[index].children);
+        context.read<CategoryProvider>().categoryClickAt(index);
       },
       child: Container(
         height: ScreenUtil().setHeight(44),
         padding: EdgeInsets.only(left: 10),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: index == clickIndex ? Colors.black12 : Colors.white,
+          color:
+              categroyModel.isSelected == true ? Colors.black12 : Colors.white,
           border: Border(
             bottom: BorderSide(
               width: 1,
@@ -121,7 +123,8 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
           ),
         ),
         child: Text(
-          list[index].name,
+          context.watch<CategoryProvider>().categorys[index].name,
+          // list[index].name,
           style: TextStyle(
             fontSize: ScreenUtil().setSp(16),
             color: Colors.black,
@@ -158,7 +161,7 @@ class _RightCategoryNavState extends State<RightCategoryNav> {
       ),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: context.watch<CategoryProvider>().categoryChildren.length,
+        itemCount: context.watch<CategoryProvider>().categoryChilds.length,
         itemBuilder: (context, index) {
           return buildItem(index);
         },
@@ -168,77 +171,38 @@ class _RightCategoryNavState extends State<RightCategoryNav> {
 
   Widget buildItem(int index) {
     CategoryChildModel model =
-        context.watch<CategoryProvider>().categoryChildren[index];
+        context.watch<CategoryProvider>().categoryChilds[index];
 
     return InkWell(
       onTap: () {
-        context.read<CategoryProvider>().childIsSelected(index);
+        context.read<CategoryProvider>().categoryChildClickAt(index);
       },
       child: Container(
         // color: Colors.red,
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-        child: Text(
-          model.name,
-          style: TextStyle(
-            color: model.isSelected == true ? Colors.red : Colors.black26,
-          ),
+        // child: Text(
+        //   model.name,
+        //   style: TextStyle(
+        //     color: model.isSelected == true ? Colors.red : Colors.black26,
+        //   ),
+        // ),
+
+        /// Selector的用法
+        child: Selector<CategoryProvider, CategoryChildModel>(
+          selector: (_, provider) => provider.categoryChilds[index],
+          builder: (_, value, child) {
+            return Text(
+              value.name,
+              style: TextStyle(
+                color: value.isSelected == true ? Colors.red : Colors.black26,
+              ),
+            );
+          },
         ),
       ),
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Selector<CategoryProvider, CategoryProvider>(
-  //     shouldRebuild: (previous, next) => false,
-  //     selector: (_, provider) => provider,
-  //     builder: (_, provider, child) {
-  //       return Container(
-  //         height: ScreenUtil().setHeight(44),
-  //         width: ScreenUtil().setWidth(314),
-  //         decoration: BoxDecoration(
-  //           color: Colors.white,
-  //           border: Border(
-  //             bottom: BorderSide(
-  //               width: 1,
-  //               color: Colors.black12,
-  //             ),
-  //           ),
-  //         ),
-  //         child: ListView.builder(
-  //           scrollDirection: Axis.horizontal,
-  //           itemCount: provider.categoryChildren.length,
-  //           itemBuilder: (_, index) => Selector(
-  //             selector: (_, CategoryProvider provider) =>
-  //                 provider.categoryChildren[index],
-  //             builder:
-  //                 (_, CategoryChildModel categoryChildModel, Widget child) {
-  //               return InkWell(
-  //                 onTap: () {
-  //                   context.read<CategoryProvider>().childIsSelected(index);
-  //                 },
-  //                 child: Container(
-  //                   // color: Colors.red,
-  //                   alignment: Alignment.centerLeft,
-  //                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-  //                   child: Text(
-  //                     categoryChildModel.name,
-  //                     style: TextStyle(
-  //                       color: categoryChildModel.isSelected == true
-  //                           ? Colors.red
-  //                           : Colors.black26,
-  //                     ),
-  //                   ),
-  //                 ),
-  //               );
-  //             },
-  //           ),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
 }
 
 class CategoryGoodsList extends StatefulWidget {
@@ -249,23 +213,23 @@ class CategoryGoodsList extends StatefulWidget {
 }
 
 class _CategoryGoodsListState extends State<CategoryGoodsList> {
-  List<HotGoodsModel> list = [];
+  // List<HotGoodsModel> list = [];
 
   @override
   void initState() {
-    loadData();
+    // loadData();
     super.initState();
   }
 
-  void loadData() {
-    getRequest("hotGoods").then((value) {
-      List<HotGoodsModel> models = HotGoodsModel.fromJsonList(value);
-      print({'models': HotGoodsModel.toJsonList(models)});
-      setState(() {
-        list = models;
-      });
-    });
-  }
+  // void loadData() {
+  //   getRequest("hotGoods").then((value) {
+  //     List<HotGoodsModel> models = HotGoodsModel.listFromJson(value);
+  //     // print({'models': HotGoodsModel.listToJson(models)});
+  //     setState(() {
+  //       list = models;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -274,7 +238,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
         width: ScreenUtil().setWidth(314),
         color: Colors.cyan,
         child: ListView.builder(
-          itemCount: list.length,
+          itemCount: context.watch<CategoryProvider>().hotGoods.length,
           itemBuilder: (_, index) => buildItem(index),
         ),
       ),
@@ -295,7 +259,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
         child: Row(
           children: [
             Image.network(
-              list[index].url,
+              context.watch<CategoryProvider>().hotGoods[index].url,
               width: ScreenUtil().setWidth(100),
               height: ScreenUtil().setHeight(100),
             ),
@@ -306,7 +270,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
                     child: Text(
-                      list[index].title,
+                      context.watch<CategoryProvider>().hotGoods[index].title,
                       style: TextStyle(
                         backgroundColor: Colors.red,
                       ),
@@ -318,13 +282,23 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
                     child: Row(
                       children: [
                         Text(
-                          "¥" + list[index].price.toString(),
+                          "¥" +
+                              context
+                                  .watch<CategoryProvider>()
+                                  .hotGoods[index]
+                                  .price
+                                  .toString(),
                           style: TextStyle(color: Colors.orange),
                         ),
                         Container(
                           margin: EdgeInsets.only(left: 20),
                           child: Text(
-                            "¥" + list[index].marketprice.toString(),
+                            "¥" +
+                                context
+                                    .watch<CategoryProvider>()
+                                    .hotGoods[index]
+                                    .marketprice
+                                    .toString(),
                             style: TextStyle(
                               color: Colors.grey,
                               decoration: TextDecoration.lineThrough,
