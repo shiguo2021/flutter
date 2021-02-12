@@ -46,4 +46,5 @@ class Category {
   // Map<String, dynamic> toJson() {
   //   return _$ModelToJson(this);
   // }
+
 }

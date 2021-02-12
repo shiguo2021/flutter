@@ -12,6 +12,14 @@ class CategoryModel {
       _$CategoryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CategoryModelToJson(this);
+
+  static List<CategoryModel> fromJsonList(dynamic json) {
+    return (json as List)
+        ?.map(
+          (e) => e == null ? null : CategoryModel.fromJson(e),
+        )
+        ?.toList();
+  }
 }
 
 @JsonSerializable()
@@ -33,7 +41,7 @@ class CategoryChildModel {
   CategoryChildModel({
     this.id,
     this.name,
-    this.isSelected,
+    this.isSelected = false,
   });
 
   factory CategoryChildModel.fromJson(Map<String, dynamic> json) =>
