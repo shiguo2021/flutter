@@ -30,17 +30,50 @@ class _CatgoryPageState extends State<CatgoryPage> {
         title: Text("分类"),
       ),
       body: Container(
-        child: Row(
-          children: [
-            CategoryNavLeft(),
-            Column(
-              children: [
-                RightCategoryNav(),
-                CategoryGoodsList(),
-              ],
-            ),
-          ],
+        child: FutureProvider<List<CategoryModel>>(
+          initialData: [],
+          create: (context) =>
+              context.read<CategoryProvider>().fetchCategorys(),
+          child: Consumer<List<CategoryModel>>(
+            builder: (context, value, child) {
+              // print({'value', value});
+              // Provider.of<CategoryProvider>(context).initData(value);
+
+              return value.length == 0
+                  ? Center(
+                      child: Text(
+                        '正在加载数据...',
+                        style: TextStyle(
+                          color: Colors.greenAccent,
+                        ),
+                      ),
+                    )
+                  : Row(
+                      children: [
+                        CategoryNavLeft(),
+                        Column(
+                          children: [
+                            RightCategoryNav(),
+                            CategoryGoodsList(),
+                          ],
+                        ),
+                      ],
+                    );
+            },
+          ),
         ),
+
+        // child: Row(
+        //   children: [
+        //     CategoryNavLeft(),
+        //     Column(
+        //       children: [
+        //         RightCategoryNav(),
+        //         CategoryGoodsList(),
+        //       ],
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
@@ -58,7 +91,7 @@ class _CategoryNavLeftState extends State<CategoryNavLeft> {
   // int clickIndex = 0;
   @override
   void initState() {
-    loadData();
+    // loadData();
     super.initState();
   }
 

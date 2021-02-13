@@ -84,9 +84,10 @@ class CategoryProvider with ChangeNotifier {
   // }
 
   Future<List<CategoryModel>> fetchCategorys() async {
-    dynamic value = await getRequest("categorys");
-    List<CategoryModel> models = CategoryModel.listFromJson(value);
-    print({'models': CategoryModel.listToJson(models)});
+    await Future.delayed(Duration(seconds: 5));
+    var value = await getRequest("categorys");
+    List<CategoryModel> models = CategoryModel.listFromJson(value['data']);
+    initData(models);
     return models;
   }
 }
