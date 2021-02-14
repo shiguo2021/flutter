@@ -13,7 +13,15 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title, style: TextStyle(color: Colors.pink)),
+        backgroundColor: Colors.tealAccent,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black87,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Container(
         child: Center(

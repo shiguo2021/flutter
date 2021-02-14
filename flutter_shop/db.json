@@ -1,187 +1,450 @@
 {
-
-    "home":{
+    "home": {
         "swipers": [
-            {"id": 1,"url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2849780995,1876710512&fm=26&gp=0.jpg"},
-            {"id": 2,"url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1597460487,2432615799&fm=26&gp=0.jpg"},
-            {"id": 3,"url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic18.nipic.com%2F20111215%2F2672779_124415079338_2.jpg&refer=http%3A%2F%2Fpic18.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614567332&t=6addc3cf8d5c8e24c1ce69928a69e79f"},
-            {"id":4,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1226018549,958588379&fm=26&gp=0.jpg"}
+            {
+                "id": 1,
+                "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2849780995,1876710512&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 2,
+                "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1597460487,2432615799&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 3,
+                "url": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic18.nipic.com%2F20111215%2F2672779_124415079338_2.jpg&refer=http%3A%2F%2Fpic18.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614567332&t=6addc3cf8d5c8e24c1ce69928a69e79f"
+            },
+            {
+                "id": 4,
+                "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1226018549,958588379&fm=26&gp=0.jpg"
+            }
         ],
-        "navigatorList":[
-            {"id":1,"title":"口子酒","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1495134264,786708973&fm=26&gp=0.jpg"},
-            {"id":2,"title":"内招酒","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1288230972,3181069619&fm=26&gp=0.jpg"},
-            {"id":3,"title":"五粮液","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1555879851,2145336868&fm=26&gp=0.jpg"},
-            {"id":4,"title":"李庄白酒","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2530256202,579959934&fm=26&gp=0.jpg"},
-            {"id":5,"title":"天佑德","imageUrl":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1325927949,2082364642&fm=26&gp=0.jpg"},
-            {"id":6,"title":"原浆酒","imageUrl":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1232219429,4022400841&fm=26&gp=0.jpg"},
-            {"id":7,"title":"贵州茅台","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3747419788,3682292058&fm=26&gp=0.jpg"},
-            {"id":8,"title":"泸州老酒","imageUrl":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2589999082,215472108&fm=26&gp=0.jpg"},
-            {"id":9,"title":"汾酒","imageUrl":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1675293159,4011257877&fm=26&gp=0.jpg"},
-            {"id":10,"title":"至尊典藏","imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4120461875,2900374073&fm=11&gp=0.jpg"},
-            {"id":11,"title":"红酒","imageUrl":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1897332924,2679168242&fm=26&gp=0.jpg"}
+        "navigatorList": [
+            {
+                "id": 1,
+                "title": "口子酒",
+                "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1495134264,786708973&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 2,
+                "title": "内招酒",
+                "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1288230972,3181069619&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 3,
+                "title": "五粮液",
+                "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1555879851,2145336868&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 4,
+                "title": "李庄白酒",
+                "imageUrl": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2530256202,579959934&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 5,
+                "title": "天佑德",
+                "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1325927949,2082364642&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 6,
+                "title": "原浆酒",
+                "imageUrl": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1232219429,4022400841&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 7,
+                "title": "贵州茅台王子",
+                "imageUrl": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3747419788,3682292058&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 8,
+                "title": "泸州老酒",
+                "imageUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2589999082,215472108&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 9,
+                "title": "汾酒",
+                "imageUrl": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1675293159,4011257877&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 10,
+                "title": "至尊典藏",
+                "imageUrl": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4120461875,2900374073&fm=11&gp=0.jpg"
+            },
+            {
+                "id": 11,
+                "title": "红酒",
+                "imageUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1897332924,2679168242&fm=26&gp=0.jpg"
+            }
         ],
-        "adpicture":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1413845724,2055229052&fm=26&gp=0.jpg",
-        "kefu":{
-            "url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1942938887,3055701813&fm=26&gp=0.jpg",
-            "phone":17677885592
+        "adpicture": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1413845724,2055229052&fm=26&gp=0.jpg",
+        "kefu": {
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1942938887,3055701813&fm=26&gp=0.jpg",
+            "phone": 17677885592
         },
-        "goods":[
-            {"id":1,"title":"鸡蛋","price":100,"hotprice":200,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2731574161,3391986480&fm=26&gp=0.jpg"},
-            {"id":2,"title":"猪肉","price":12,"hotprice":23,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3525294997,3112360321&fm=26&gp=0.jpg"},
-            {"id":3,"title":"茶叶","price":8,"hotprice":9.02,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3044154774,1617735530&fm=26&gp=0.jpg"},
-            {"id":4,"title":"洋白菜","price":0.3,"hotprice":0.5,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2329887869,380610672&fm=26&gp=0.jpg"},
-            {"id":5,"title":"胡萝卜","price":23,"hotprice":34,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3333386295,578987958&fm=26&gp=0.jpg"},
-            {"id":6,"title":"大礼包","price":98,"hotprice":299,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=168294643,1161946077&fm=26&gp=0.jpg"}
+        "goods": [
+            {
+                "id": 1,
+                "title": "鸡蛋",
+                "price": 100,
+                "hotprice": 200,
+                "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2731574161,3391986480&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 2,
+                "title": "猪肉",
+                "price": 12,
+                "hotprice": 23,
+                "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3525294997,3112360321&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 3,
+                "title": "茶叶",
+                "price": 8,
+                "hotprice": 9.02,
+                "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3044154774,1617735530&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 4,
+                "title": "洋白菜",
+                "price": 0.3,
+                "hotprice": 0.5,
+                "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2329887869,380610672&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 5,
+                "title": "胡萝卜",
+                "price": 23,
+                "hotprice": 34,
+                "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3333386295,578987958&fm=26&gp=0.jpg"
+            },
+            {
+                "id": 6,
+                "title": "大礼包",
+                "price": 98,
+                "hotprice": 299,
+                "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=168294643,1161946077&fm=26&gp=0.jpg"
+            }
         ],
-        "floor":{
-            "title":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3142687301,2780261965&fm=26&gp=0.jpg",
-            "list":[
-                {"id":1,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3667409057,1207338628&fm=26&gp=0.jpg"},
-                {"id":2,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2413377222,2864977371&fm=26&gp=0.jpg"},
-                {"id":3,"url":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2359740989,95889608&fm=26&gp=0.jpg"},
-                {"id":4,"url":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2757828087,4248170330&fm=26&gp=0.jpg"},
-                {"id":5,"url":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2397606382,2752257229&fm=26&gp=0.jpg"}
+        "floor": {
+            "title": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3142687301,2780261965&fm=26&gp=0.jpg",
+            "list": [
+                {
+                    "id": 1,
+                    "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3667409057,1207338628&fm=26&gp=0.jpg"
+                },
+                {
+                    "id": 2,
+                    "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2413377222,2864977371&fm=26&gp=0.jpg"
+                },
+                {
+                    "id": 3,
+                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2359740989,95889608&fm=26&gp=0.jpg"
+                },
+                {
+                    "id": 4,
+                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2757828087,4248170330&fm=26&gp=0.jpg"
+                },
+                {
+                    "id": 5,
+                    "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2397606382,2752257229&fm=26&gp=0.jpg"
+                }
             ]
         }
     },
-    "hotGoods":[
-        {"id":1,"title":"燕京啤酒 这个名字有点长 真的非常长呀","price":23,"marketprice":35,"url":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3271671145,2474265329&fm=26&gp=0.jpg"},
-        {"id":2,"title":"纯生","price":12,"marketprice":22,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1496211843,1138694766&fm=26&gp=0.jpg"},
-        {"id":3,"title":"力加","price":56,"marketprice":100,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2391380614,1670778450&fm=26&gp=0.jpg"},
-        {"id":4,"title":"黑啤","price":199,"marketprice":500,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2449105001,2691737769&fm=26&gp=0.jpg"},
-        {"id":5,"title":"德啤","price":399,"marketprice":800,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1706010248,3340133244&fm=26&gp=0.jpg"},
-        {"id":6,"title":"嘉士伯","price":3,"marketprice":200,"url":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3367226635,3961923868&fm=26&gp=0.jpg"},
-        {"id":7,"title":"可口可乐","price":2,"marketprice":3,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3608662449,3207617994&fm=26&gp=0.jpg"},
-        {"id":8,"title":"百事可乐","price":2,"marketprice":3,"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2185660866,833834541&fm=26&gp=0.jpg"},
-        {"id":9,"title":"荔枝","price":45,"marketprice":50,"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2610568891,1404770512&fm=26&gp=0.jpg"},
-        {"id":10,"title":"鲜橙","price":9,"marketprice":15,"url":"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2610654264,813084806&fm=26&gp=0.jpg"},
-        {"id":11,"title":"伏特加","price":19,"marketprice":30,"url":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3838604737,673191267&fm=26&gp=0.jpg"},
-        {"id":12,"title":"鸡尾酒","price":2000,"marketprice":2000,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1039663084,1508377848&fm=26&gp=0.jpg"},
-        {"id":13,"title":"RIO","price":5,"marketprice":5,"url":"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2299289826,3273472670&fm=26&gp=0.jpg"}
+    "hotGoods": [
+        {
+            "id": 1,
+            "title": "燕京啤酒 这个名字有点长 真的非常长呀",
+            "price": 23,
+            "marketprice": 35,
+            "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3271671145,2474265329&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 2,
+            "title": "纯生",
+            "price": 12,
+            "marketprice": 22,
+            "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1496211843,1138694766&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 3,
+            "title": "力加",
+            "price": 56,
+            "marketprice": 100,
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2391380614,1670778450&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 4,
+            "title": "黑啤",
+            "price": 199,
+            "marketprice": 500,
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2449105001,2691737769&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 5,
+            "title": "德啤",
+            "price": 399,
+            "marketprice": 800,
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1706010248,3340133244&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 6,
+            "title": "嘉士伯",
+            "price": 3,
+            "marketprice": 200,
+            "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3367226635,3961923868&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 7,
+            "title": "可口可乐",
+            "price": 2,
+            "marketprice": 3,
+            "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3608662449,3207617994&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 8,
+            "title": "百事可乐",
+            "price": 2,
+            "marketprice": 3,
+            "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2185660866,833834541&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 9,
+            "title": "荔枝",
+            "price": 45,
+            "marketprice": 50,
+            "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2610568891,1404770512&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 10,
+            "title": "鲜橙",
+            "price": 9,
+            "marketprice": 15,
+            "url": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2610654264,813084806&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 11,
+            "title": "伏特加",
+            "price": 19,
+            "marketprice": 30,
+            "url": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3838604737,673191267&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 12,
+            "title": "鸡尾酒",
+            "price": 2000,
+            "marketprice": 2000,
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1039663084,1508377848&fm=26&gp=0.jpg"
+        },
+        {
+            "id": 13,
+            "title": "RIO",
+            "price": 5,
+            "marketprice": 5,
+            "url": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2299289826,3273472670&fm=26&gp=0.jpg"
+        }
     ],
-    "category":{
-        "data":[
+    "category": {
+        "data": [
             {
-                "mallCategoryId":"1",
-                "mallCategoryName":"白酒1",
-                "bxMallSubDto":[
+                "mallCategoryId": "1",
+                "mallCategoryName": "白酒1",
+                "bxMallSubDto": [
                     {
-                        "name":"白酒1-1-1"
+                        "name": "白酒1-1-1"
                     }
                 ],
-                "comments":null,
-                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1904156563,393361692&fm=26&gp=0.jpg"
+                "comments": null,
+                "image": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1904156563,393361692&fm=26&gp=0.jpg"
             },
             {
-                "mallCategoryId":"2",
-                "mallCategoryName":"白酒2",
-                "bxMallSubDto":[
+                "mallCategoryId": "2",
+                "mallCategoryName": "白酒2",
+                "bxMallSubDto": [
                     {
-                        "name":"白酒2-1-1"
+                        "name": "白酒2-1-1"
                     }
                 ],
-                "comments":null,
-                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2409139952,2591148999&fm=11&gp=0.jpg"
+                "comments": null,
+                "image": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2409139952,2591148999&fm=11&gp=0.jpg"
             },
             {
-                "mallCategoryId":"3",
-                "mallCategoryName":"白酒3",
-                "bxMallSubDto":[
+                "mallCategoryId": "3",
+                "mallCategoryName": "白酒3",
+                "bxMallSubDto": [
                     {
-                        "name":"白酒3-1-1"
+                        "name": "白酒3-1-1"
                     }
                 ],
-                "comments":null,
-                "image":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2106099848,2414025495&fm=26&gp=0.jpg"
+                "comments": null,
+                "image": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2106099848,2414025495&fm=26&gp=0.jpg"
             }
         ]
     },
-    "categorys":{
-        "data":[
+    "categorys": {
+        "data": [
             {
-                "name":"白酒",
-                "children":[
-                    {"name":"贵州茅台","id":1},
-                    {"name":"五粮液","id":2},
-                    {"name":"古井贡酒","id":3},
-                    {"name":"山西汾酒","id":4},
-                    {"name":"长白山","id":5},
-                    {"name":"北京二锅头","id":6},
-                    {"name":"北京牛栏山","id":7},
-                    {"name":"黄鹤楼","id":8}
+                "name": "白酒",
+                "children": [
+                    {
+                        "name": "贵州茅台",
+                        "id": 1
+                    },
+                    {
+                        "name": "五粮液",
+                        "id": 2
+                    },
+                    {
+                        "name": "古井贡酒",
+                        "id": 3
+                    },
+                    {
+                        "name": "山西汾酒",
+                        "id": 4
+                    },
+                    {
+                        "name": "长白山",
+                        "id": 5
+                    },
+                    {
+                        "name": "北京二锅头",
+                        "id": 6
+                    },
+                    {
+                        "name": "北京牛栏山",
+                        "id": 7
+                    },
+                    {
+                        "name": "黄鹤楼",
+                        "id": 8
+                    }
                 ]
             },
             {
-                "name":"啤酒",
-                "children":[
-                    {"name":"雪花啤酒","id":1},
-                    {"name":"青岛啤酒","id":2},
-                    {"name":"哈啤","id":3},
-                    {"name":"乌苏啤酒","id":4},
-                    {"name":"七喜","id":5},
-                    {"name":"百威","id":6},
-                    {"name":"行吟阁","id":7}
+                "name": "啤酒",
+                "children": [
+                    {
+                        "name": "雪花啤酒",
+                        "id": 1
+                    },
+                    {
+                        "name": "青岛啤酒",
+                        "id": 2
+                    },
+                    {
+                        "name": "哈啤",
+                        "id": 3
+                    },
+                    {
+                        "name": "乌苏啤酒",
+                        "id": 4
+                    },
+                    {
+                        "name": "七喜",
+                        "id": 5
+                    },
+                    {
+                        "name": "百威",
+                        "id": 6
+                    },
+                    {
+                        "name": "行吟阁",
+                        "id": 7
+                    }
                 ]
             },
             {
-                "name":"葡萄酒",
-                "children":[
-                    {"name":"白葡萄酒","id":0},
-                    {"name":"红葡萄酒","id":1}
+                "name": "葡萄酒",
+                "children": [
+                    {
+                        "name": "白葡萄酒",
+                        "id": 0
+                    },
+                    {
+                        "name": "红葡萄酒",
+                        "id": 1
+                    }
                 ]
             },
             {
-                "name":"清酒洋酒",
-                "children":[
-                    {"name":"韩国清酒","id":0}
+                "name": "清酒洋酒",
+                "children": [
+                    {
+                        "name": "韩国清酒",
+                        "id": 0
+                    }
                 ]
             },
             {
-                "name":"保健酒",
-                "children":[
-                    {"name":"中国保健酒","id":0}
+                "name": "保健酒",
+                "children": [
+                    {
+                        "name": "中国保健酒",
+                        "id": 0
+                    }
                 ]
             },
             {
-                "name":"预调酒",
-                "children":[
-                    {"name":"西方调试酒","id":0}
+                "name": "预调酒",
+                "children": [
+                    {
+                        "name": "西方调试酒",
+                        "id": 0
+                    }
                 ]
             },
             {
-                "name":"下酒小菜",
-                "children":[
-                    {"name":"小白","id":0},
-                    {"name":"大白","id":1}
+                "name": "下酒小菜",
+                "children": [
+                    {
+                        "name": "小白",
+                        "id": 0
+                    },
+                    {
+                        "name": "大白",
+                        "id": 1
+                    }
                 ]
             },
             {
-                "name":"饮料",
-                "children":[
-                    {"name":"可乐","id":0},
-                    {"name":"百事","id":1}
+                "name": "饮料",
+                "children": [
+                    {
+                        "name": "可乐",
+                        "id": 0
+                    },
+                    {
+                        "name": "百事",
+                        "id": 1
+                    }
                 ]
             },
             {
-                "name":"乳制品",
-                "children":[
-                    {"name":"酸酸甜甜","id":0}
+                "name": "乳制品",
+                "children": [
+                    {
+                        "name": "酸酸甜甜",
+                        "id": 0
+                    }
                 ]
             },
             {
-                "name":"休闲零食",
-                "children":[
-                    {"name":"瓜子花生","id":0}
+                "name": "休闲零食",
+                "children": [
+                    {
+                        "name": "瓜子花生",
+                        "id": 0
+                    }
                 ]
             },
             {
-                "name":"粮油调味",
-                "children":[
-                    {"name":"啤酒板凳","id":0}
+                "name": "粮油调味",
+                "children": [
+                    {
+                        "name": "啤酒板凳",
+                        "id": 0
+                    }
                 ]
             }
         ]
     }
-    
-    
 }

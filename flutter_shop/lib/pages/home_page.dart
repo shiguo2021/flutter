@@ -264,7 +264,11 @@ class TopNavigator extends StatelessWidget {
             height: ScreenUtil().setHeight(40),
             fit: BoxFit.cover,
           ),
-          Text(item['title']),
+          Text(
+            item['title'],
+            maxLines: 1,
+            overflow: TextOverflow.fade,
+          ),
         ],
       ),
     );
