@@ -6,9 +6,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'provider/counter_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:fluro/fluro.dart';
+import "./routers/application.dart";
+import "./routers/routes.dart";
 
 void main() {
   // Provider.debugCheckInvalidValueType = null;
+
   runApp(
     MultiProvider(
       providers: [
@@ -26,29 +30,38 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: Size(414, 896),
-        allowFontScaling: false,
-        child: Container(
-          child: MaterialApp(
-            title: '百姓生活+',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primaryColor: Colors.pink, //主题色
-            ),
-            home: IndexPage(),
+    final router = FluroRouter();
+    /*第一种路由配置方法 */
+    Routes.configureRoutes(router);
+    /**第二种路由配置方法 */
+    // Routes.defineRoutes(router);
+    Application.router = router;
 
-            localizationsDelegates: [
-              // GlobalEasyRefreshLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate
-            ],
-            //国际化
-            supportedLocales: [
-              Locale('zh', 'CN'),
-            ],
+    return ScreenUtilInit(
+      designSize: Size(414, 896),
+      allowFontScaling: false,
+      child: Container(
+        child: MaterialApp(
+          onGenerateRoute: Application.router.generator,
+          title: '百姓生活+',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primaryColor: Colors.pink, //主题色
           ),
-        ));
+          home: IndexPage(),
+
+          localizationsDelegates: [
+            // GlobalEasyRefreshLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate
+          ],
+          //国际化
+          supportedLocales: [
+            Locale('zh', 'CN'),
+          ],
+        ),
+      ),
+    );
   }
 }

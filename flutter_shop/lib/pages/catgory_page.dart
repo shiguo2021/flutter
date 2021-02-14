@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_shop/model/HotGoodsModel.dart';
-
 import '../model/CategoryModel.dart';
 import "../service/service_methd.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import 'package:provider/provider.dart';
 import '../provider/category_provider.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CatgoryPage extends StatefulWidget {
   CatgoryPage({Key key}) : super(key: key);
@@ -44,7 +44,7 @@ class _CatgoryPageState extends State<CatgoryPage> {
                       child: Text(
                         '正在加载数据...',
                         style: TextStyle(
-                          color: Colors.greenAccent,
+                          color: Colors.blueGrey,
                         ),
                       ),
                     )
@@ -248,6 +248,8 @@ class CategoryGoodsList extends StatefulWidget {
 class _CategoryGoodsListState extends State<CategoryGoodsList> {
   // List<HotGoodsModel> list = [];
 
+  var _controller = ScrollController();
+
   @override
   void initState() {
     // loadData();
@@ -266,11 +268,20 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
 
   @override
   Widget build(BuildContext context) {
+    //滚回到顶部
+    // _controller.jumpTo(0.0);
+
+    print('10s后滚回到顶部');
+    Future.delayed(Duration(seconds: 10), () {
+      _controller.jumpTo(0.0);
+    });
+
     return Expanded(
       child: Container(
         width: ScreenUtil().setWidth(314),
         color: Colors.cyan,
         child: ListView.builder(
+          controller: _controller,
           itemCount: context.watch<CategoryProvider>().hotGoods.length,
           itemBuilder: (_, index) => buildItem(index),
         ),
@@ -280,7 +291,17 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
 
   Widget buildItem(int index) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Fluttertoast.showToast(
+          msg: "5秒以后滚动到顶部",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          // timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+      },
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(

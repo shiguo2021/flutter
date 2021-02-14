@@ -15,6 +15,10 @@ class CategoryProvider with ChangeNotifier {
       CategoryChildModel allModel =
           CategoryChildModel(id: 0, name: "全部", isSelected: true);
       categoryChilds = [allModel]..addAll(list.first.children);
+
+      print({
+        'categoryChilds': CategoryChildModel.listToJson(categoryChilds),
+      });
     }
     categorys = list;
     fetchHotGoods();

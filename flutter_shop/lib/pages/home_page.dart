@@ -1,3 +1,4 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import '../service/service_methd.dart';
@@ -5,6 +6,7 @@ import 'dart:convert';
 import 'package:flutter_screenutil/screenutil.dart';
 import "package:url_launcher/url_launcher.dart";
 import "package:flutter_easyrefresh/easy_refresh.dart";
+import '../routers/application.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -239,7 +241,20 @@ class TopNavigator extends StatelessWidget {
   Widget _gridViewItemUI(BuildContext context, item) {
     return InkWell(
       onTap: () {
-        print(item);
+        print({
+          'item': item,
+          'title': item['title'],
+          'id': item['id'],
+        });
+
+        /**中文必须包一层 */
+        String title = Uri.encodeComponent(item['title']);
+        Application.router.navigateTo(
+          context,
+          "/detail?id=${item['id']}&title=$title",
+        );
+
+        // Application.router.navigateTo(context, "/detail/123/fff");
       },
       child: Column(
         children: [
@@ -315,18 +330,18 @@ class LeaderPhone extends StatelessWidget {
   }
 
   void _launchURL() async {
-    if (await canLaunch(phone)) {
-      await launch('tel:' + phone);
-    } else {
-      throw "url不能访问:模拟器不能拨打电话";
-    }
-
-    // const url = 'https://www.baidu.com';
-    // if (await canLaunch(url)) {
-    //   await launch(url);
+    // if (await canLaunch(phone)) {
+    //   await launch('tel:' + phone);
     // } else {
-    //   throw 'Could not launch $url';
+    //   throw "url不能访问:模拟器不能拨打电话";
     // }
+
+    const url = 'https://www.baidu.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 
@@ -351,7 +366,7 @@ class Recomment extends StatelessWidget {
 
   Widget _item(context, index) {
     var item = InkWell(
-      onTap: () => {
+      onTap: () {
         // showDialog(
         //   context: context,
         //   builder: (context) => AlertDialog(
@@ -359,8 +374,13 @@ class Recomment extends StatelessWidget {
         //   ),
         // )
 
-        Scaffold.of(context)
-            .showSnackBar(SnackBar(content: Text(goods[index]['title'])))
+        Scaffold.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              goods[index]['title'],
+            ),
+          ),
+        );
       },
       child: Container(
         height: ScreenUtil().setHeight(100),

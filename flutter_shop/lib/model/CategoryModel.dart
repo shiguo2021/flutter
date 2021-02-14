@@ -6,7 +6,7 @@ part "CategoryModel.g.dart";
 class CategoryModel {
   String name;
   List<CategoryChildModel> children;
-  bool isSelected = false;
+  bool isSelected = false; //这里默认值无效
   CategoryModel(this.name, this.children, this.isSelected);
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
@@ -58,4 +58,15 @@ class CategoryChildModel {
   factory CategoryChildModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryChildModelFromJson(json);
   Map<String, dynamic> toJson() => _$CategoryChildModelToJson(this);
+
+  static List<Map<String, dynamic>> listToJson(
+      List<CategoryChildModel> models) {
+    return models
+        .map((instance) => <String, dynamic>{
+              'name': instance.name,
+              'isSelected': instance.isSelected,
+              'id': instance.id,
+            })
+        .toList();
+  }
 }
