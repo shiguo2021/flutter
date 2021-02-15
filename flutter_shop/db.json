@@ -446,5 +446,12 @@
                 ]
             }
         ]
+    },
+    "goodsDetail": {
+        "goodsName": "汉酱（经典汉酱）51度500ML",
+        "goodsUrl": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.tbcdn.cn%2Ftfscom%2Fi3%2FTB1T.4bQVXXXXXlXpXXXXXXXXXX_%21%210-item_pic.jpg&refer=http%3A%2F%2Fimg3.tbcdn.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1615953059&t=0e9b0680fa0c02a50d56aeadcb9c78d0",
+        "NO": "690202985657977",
+        "price": 288,
+        "marketprice": 498
     }
 }

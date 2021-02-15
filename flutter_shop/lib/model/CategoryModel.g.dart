@@ -8,18 +8,21 @@ part of 'CategoryModel.dart';
 
 CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
   return CategoryModel(
-    json['name'] as String,
-    (json['children'] as List)
-        ?.map((e) => e == null
-            ? null
-            : CategoryChildModel.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    json['isSelected'] as bool,
-  );
+      json['name'] as String,
+      (json['children'] as List)
+          ?.map((e) => e == null
+              ? null
+              : CategoryChildModel.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
+      json['isSelected'] as bool);
 }
 
 Map<String, dynamic> _$CategoryModelToJson(CategoryModel instance) =>
-    <String, dynamic>{'name': instance.name, 'children': instance.children};
+    <String, dynamic>{
+      'name': instance.name,
+      'children': instance.children,
+      'isSelected': instance.isSelected
+    };
 
 CategoryModels _$CategoryModelsFromJson(Map<String, dynamic> json) {
   return CategoryModels((json['data'] as List)
