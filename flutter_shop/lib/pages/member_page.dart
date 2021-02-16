@@ -11,7 +11,28 @@ class MemberPage extends StatelessWidget {
           initialData: '数据正在初始化...',
           create: (context) => fetchAddress(),
           child: Consumer<String>(
-            builder: (context, value, child) => Text(value),
+            builder: (context, value, child) {
+              return Container(
+                color: Colors.yellowAccent,
+                padding: EdgeInsets.only(top: 100),
+                child: Column(
+                  children: [
+                    Text(value),
+                    Container(
+                      color: Colors.white,
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.list,
+                          size: 32,
+                        ),
+                        title: Text('我的订单'),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),
