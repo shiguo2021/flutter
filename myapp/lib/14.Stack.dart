@@ -10,8 +10,14 @@ class MyApp extends StatelessWidget {
       children: <Widget>[
         new CircleAvatar(
           backgroundImage: new NetworkImage(
-              'https://i0.hdslb.com/bfs/face/c81969907b5c286b50d02400e7d54b13595f09bb.jpg@68w_68h.jpg'),
+            'https://i0.hdslb.com/bfs/face/c81969907b5c286b50d02400e7d54b13595f09bb.jpg@68w_68h.jpg',
+          ),
           radius: 100.0,
+        ),
+        ClipOval(
+          child: Image.network(
+            'https://i0.hdslb.com/bfs/face/c81969907b5c286b50d02400e7d54b13595f09bb.jpg@68w_68h.jpg',
+          ),
         ),
         new Container(
           decoration: new BoxDecoration(

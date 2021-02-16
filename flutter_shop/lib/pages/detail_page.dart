@@ -7,6 +7,8 @@ import "package:provider/provider.dart";
 import './detail_page/detail_top_area.dart';
 import './detail_page/detail_explain.dart';
 import './detail_page/detail_tabbar.dart';
+import './detail_page/detail_web.dart';
+import './detail_page/detail_bottom.dart';
 
 class DetailPage extends StatelessWidget {
   final String id;
@@ -21,12 +23,12 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title, style: TextStyle(color: Colors.pink)),
-        backgroundColor: Colors.tealAccent,
+        title: Text(title, style: TextStyle(color: Colors.redAccent)),
+        backgroundColor: Color.fromRGBO(112, 68, 65, 1),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Colors.black87,
+            color: Colors.white,
           ),
           onPressed: () => Navigator.pop(context),
         ),
@@ -39,11 +41,21 @@ class DetailPage extends StatelessWidget {
           future: context.read<GoodsDetailProvider>().loadData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListView(
+              return Stack(
                 children: [
-                  DetailTopArea(),
-                  DetailExplain(),
-                  DetailTabbar(),
+                  ListView(
+                    children: [
+                      DetailTopArea(),
+                      DetailExplain(),
+                      DetailTabbar(),
+                      DetailWeb(),
+                    ],
+                  ),
+                  Positioned(
+                    child: DetailBottom(),
+                    bottom: 0,
+                    left: 0,
+                  )
                 ],
               );
 

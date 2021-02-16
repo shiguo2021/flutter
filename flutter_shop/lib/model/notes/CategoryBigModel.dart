@@ -30,12 +30,22 @@ class CateroryBigModel {
     this.comments,
     this.image,
   );
-  CateroryBigModel.fromJson(dynamic json)
-      : mallCategoryId = json['mallCategoryId'],
-        mallCategoryName = json['mallCategoryName'],
-        bxMallSubDto = json['bxMallSubDto'],
-        comments = json['comments'],
-        image = json['image'];
+
+  /***两种写法 */
+  // CateroryBigModel.fromJson(dynamic json)
+  //     : mallCategoryId = json['mallCategoryId'],
+  //       mallCategoryName = json['mallCategoryName'],
+  //       bxMallSubDto = json['bxMallSubDto'],
+  //       comments = json['comments'],
+  //       image = json['image'];
+
+  CateroryBigModel.fromJson(dynamic json) {
+    mallCategoryId = json['mallCategoryId'];
+    mallCategoryName = json['mallCategoryName'];
+    bxMallSubDto = json['bxMallSubDto'];
+    comments = json['comments'];
+    image = json['image'];
+  }
 }
 
 class CategoryBigListModel {
