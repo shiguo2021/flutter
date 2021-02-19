@@ -22,6 +22,9 @@ dependencies:
   fluro: ^1.7.8
   flutter_html: ^1.2.0
   shared_preferences: ^0.5.12
+  flutter_daydart: 
+    git:
+      url: https://github.com/icepy/flutter_daydart
 
 
   # The following adds the Cupertino Icons font to your application.

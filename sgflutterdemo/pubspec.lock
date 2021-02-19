@@ -230,6 +230,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_daydart:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "31abb45e251a65b235f9098fc1f9ebb30ec86474"
+      url: "https://github.com/icepy/flutter_daydart"
+    source: git
+    version: "0.0.3"
   flutter_easyrefresh:
     dependency: "direct main"
     description:

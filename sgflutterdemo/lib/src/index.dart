@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:sgflutterdemo/src/splash.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          color: Colors.orange,
-          alignment: Alignment.bottomCenter,
-          padding: EdgeInsets.only(bottom: 100),
-          child: InkWell(
-            onTap: () {
-              print('123');
-            },
-            child: Text(
-              '进入应用',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            ),
-          ),
+    // print({
+    //   'defaultSize': ScreenUtil.defaultSize,
+    //   'pixelRatio': ScreenUtil().pixelRatio,
+    //   'screenWidth': ScreenUtil().screenWidth,
+    //   'screenHeight': ScreenUtil().screenHeight,
+    //   'bottomBarHeight': ScreenUtil().bottomBarHeight,
+    //   'textScaleFactor': ScreenUtil().textScaleFactor,
+    //   'scaleWidth': ScreenUtil().scaleWidth,
+    //   'scaleHeight': ScreenUtil().scaleHeight,
+    //   '屏幕宽度的0.2倍': 0.2,
+    // });
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: Scaffold(
+    //       // body: Splash(),
+    //       ),
+    // );
+
+    return ScreenUtilInit(
+      designSize: Size(414, 896),
+      allowFontScaling: false,
+      builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Splash(),
         ),
       ),
     );
