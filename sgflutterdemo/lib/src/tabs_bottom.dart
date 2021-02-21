@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import './page/home.dart';
+import './page/book.dart';
+import './page/found.dart';
+import './page/me.dart';
+import './provider/tabs_bottom_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class TabsBottom extends StatelessWidget {
+  final items = [
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.home),
+      label: '首页',
+      activeIcon: Icon(CupertinoIcons.hammer),
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.book),
+      label: '目录',
+      activeIcon: Icon(CupertinoIcons.hammer),
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.sunset),
+      label: '发现',
+      activeIcon: Icon(CupertinoIcons.hammer),
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.person),
+      label: '我的',
+      activeIcon: Icon(CupertinoIcons.hammer),
+    ),
+  ];
+
+  final pages = [
+    HomePage(),
+    BookPage(),
+    FoundPage(),
+    MePage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    // print({
+    //   'index': context.watch<TabsBottomProvider>().tabIndex,
+    // });
+
+    return Scaffold(
+      // body: pages[0],
+      body: IndexedStack(
+        index: context.watch<TabsBottomProvider>().tabIndex,
+        children: pages,
+      ),
+
+      backgroundColor: Colors.white,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: items,
+        currentIndex: context.watch<TabsBottomProvider>().tabIndex,
+        onTap: (index) {
+          context.read<TabsBottomProvider>().setTabIndex(index);
+        },
+        selectedItemColor: Colors.deepOrange,
+        unselectedItemColor: Colors.black,
+        // selectedLabelStyle: TextStyle(fontSize: ScreenUtil().setSp(13)),
+        // selectedFontSize: 16,
+        // selectedIconTheme: IconThemeData(
+        //     color: Colors.green, size: ScreenUtil().setHeight(24)),
+      ),
+    );
+  }
+}
