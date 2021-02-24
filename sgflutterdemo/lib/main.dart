@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sgflutterdemo/src/index.dart';
+import 'package:sgflutterdemo/src/app.dart';
 import 'package:sgflutterdemo/src/provider/store.dart';
 
 void main() {
-  runApp(ProviderStore(child: IndexPage()));
+  runApp(ProviderStore(child: AppPage()));
 }

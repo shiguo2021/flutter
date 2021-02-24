@@ -1,32 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgflutterdemo/src/splash.dart';
-/**路由 */
-import 'package:fluro/fluro.dart';
-import './routes/application.dart';
-import './routes/routes.dart';
-
-class IndexPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    /**路由配置 */
-    final router = FluroRouter();
-    Routes.configureRoutes(router);
-    Application.router = router;
-
-    var screen = ScreenUtilInit(
-      designSize: Size(414, 896),
-      allowFontScaling: false,
-      builder: () => MaterialApp(
-        onGenerateRoute: Application.router.generator,
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: Splash(),
-        ),
-      ),
-    );
-
-    return screen;
-  }
-}
+export './routes/application.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+export './routes/application.dart';
+// export 'dart:async';
+export 'package:flutter_daydart/flutter_daydart.dart';
+export 'package:flutter_swiper/flutter_swiper.dart';
+export 'package:flutter_easyrefresh/easy_refresh.dart';
+export 'dart:convert';
