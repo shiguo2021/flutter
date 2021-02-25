@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import 'package:sgflutterdemo/src/guide.dart';
 import './router_handlers.dart';
 
 class Routes {
@@ -27,6 +26,12 @@ class Routes {
       '/login',
       handler: loginHandler,
       transitionType: TransitionType.fadeIn,
+    );
+
+    router.define(
+      '/TextFieldWidgetPage',
+      handler: textFieldWidgetPageHandler,
+      transitionType: TransitionType.inFromRight,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../index.dart';
+import '../widgets/index.dart';
 
 class BookPage extends StatefulWidget {
   BookPage({Key key}) : super(key: key);
@@ -31,10 +32,24 @@ class _BookPageState extends State<BookPage> {
       appBar: AppBar(
         title: Text('基础组件'),
         automaticallyImplyLeading: false,
+        shadowColor: Colors.transparent,
       ),
       body: Container(
-          // color: Colors.blueAccent,
-          ),
+        child: ListView.builder(
+          itemBuilder: (_, index) {
+            String title = dataList[index]['title'];
+            return Cell(
+              title: title,
+              onPress: () {
+                // TextFieldWidgetPage
+                Application.router
+                    .navigateTo(context, '/${title}WidgetPage?title=${title}');
+              },
+            );
+          },
+          itemCount: dataList.length,
+        ),
+      ),
     );
   }
 }
