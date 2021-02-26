@@ -28,6 +28,12 @@ class AppPage extends StatelessWidget {
       ),
     );
 
-    return screen;
+    /**全局设备点击空白区域收起键盘 */
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: screen,
+    );
   }
 }
