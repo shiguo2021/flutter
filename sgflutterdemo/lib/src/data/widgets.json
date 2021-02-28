@@ -1,5 +1,7 @@
-[
-    {
-        "title": "TextField"
-    }
-]
+{
+    "widgets": [
+        "TextField",
+        "TextFieldEvent",
+        "Keyboard_avoider"
+    ]
+}

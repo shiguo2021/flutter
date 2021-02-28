@@ -379,7 +379,7 @@ packages:
       name: io
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   js:
     dependency: transitive
     description:
@@ -408,6 +408,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.19"
+  keyboard_avoider:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: a40a7eb21d2e28b7b7e992e6e40a1769bce97900
+      url: "https://github.com/martinrybak/keyboard_avoider"
+    source: git
+    version: "0.1.2"
   logging:
     dependency: transitive
     description:

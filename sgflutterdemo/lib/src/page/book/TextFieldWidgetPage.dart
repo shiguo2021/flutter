@@ -4,9 +4,10 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 
 class TextFieldWidgetPage extends StatelessWidget {
   String title;
+  TextFieldWidgetPage({this.title});
   TextEditingController controller = TextEditingController(text: '测试Example4');
   FocusNode focusNode = FocusNode();
-  TextFieldWidgetPage({this.title});
+  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     controller.addListener(() {
@@ -39,6 +40,7 @@ class TextFieldWidgetPage extends StatelessWidget {
             Expanded(
               child: CupertinoScrollbar(
                 child: SingleChildScrollView(
+                  controller: _scrollController,
                   physics: BouncingScrollPhysics(),
                   padding: EdgeInsets.all(10),
                   child: Column(
@@ -64,10 +66,10 @@ class TextFieldWidgetPage extends StatelessWidget {
                 ),
               ),
             ),
-            RaisedButton(
-              onPressed: () {},
-              child: Text('点击事件'),
-            )
+            // RaisedButton(
+            //   onPressed: () {},
+            //   child: Text('点击事件'),
+            // )
           ],
         ),
       ),
@@ -245,7 +247,7 @@ class Example6 extends StatelessWidget {
         minWidth: 200,
       ),
       child: TextField(
-        autofocus: true,
+        autofocus: false,
         maxLength: 11,
         keyboardType: TextInputType.datetime,
         textInputAction: TextInputAction.search,
@@ -283,7 +285,7 @@ class _FocusExampleState extends State<FocusExample> {
       child: Column(
         children: <Widget>[
           TextField(
-            autofocus: true,
+            // autofocus: true,
             focusNode: focusNode1, //关联focusNode1
             decoration: InputDecoration(labelText: "input1FocusExample"),
           ),

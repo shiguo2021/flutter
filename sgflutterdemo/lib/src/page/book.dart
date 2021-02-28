@@ -19,7 +19,7 @@ class _BookPageState extends State<BookPage> {
         .then((res) {
       /**res is String */
       setState(() {
-        dataList = json.decode(res);
+        dataList = json.decode(res)['widgets'];
       });
     });
 
@@ -37,7 +37,7 @@ class _BookPageState extends State<BookPage> {
       body: Container(
         child: ListView.builder(
           itemBuilder: (_, index) {
-            String title = dataList[index]['title'];
+            String title = dataList[index];
             return Cell(
               title: title,
               onPress: () {
