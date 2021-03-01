@@ -15,7 +15,7 @@ class AppPage extends StatelessWidget {
     Routes.configureRoutes(router);
     Application.router = router;
 
-    var screen = ScreenUtilInit(
+    final screen = ScreenUtilInit(
       designSize: Size(414, 896),
       allowFontScaling: false,
       builder: () => MaterialApp(
