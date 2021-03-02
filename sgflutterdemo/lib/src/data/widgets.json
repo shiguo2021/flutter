@@ -2,6 +2,7 @@
     "widgets": [
         "TextField",
         "TextFieldEvent",
-        "Keyboard_avoider"
+        "Keyboard_avoider",
+        "OverflowBox"
     ]
 }

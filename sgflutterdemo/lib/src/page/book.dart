@@ -38,7 +38,7 @@ class _BookPageState extends State<BookPage> {
         child: ListView.builder(
           itemBuilder: (_, index) {
             String title = dataList[index];
-            return Cell(
+            return CustomCell(
               title: title,
               onPress: () {
                 // TextFieldWidgetPage
