@@ -13,37 +13,42 @@ class Routes {
 
     router.define(
       '/guide',
-      handler: guideHandler,
+      handler: guide_Handler,
       transitionType: TransitionType.fadeIn,
     );
 
     router.define(
       '/tabs_bottom',
-      handler: tabsBottomHandler,
+      handler: tabsBottom_Handler,
       transitionType: TransitionType.fadeIn,
     );
 
     router.define(
       '/login',
-      handler: loginHandler,
+      handler: login_Handler,
       transitionType: TransitionType.fadeIn,
     );
 
     router.define(
-      '/TextFieldWidgetPage',
-      handler: textFieldWidgetPageHandler,
+      '/TextField_widget',
+      handler: TextField_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
 
     router.define(
-      '/TextFieldEventWidgetPage',
-      handler: textFieldEventWidgetPageHandler,
+      '/TextField_event_widget',
+      handler: TextField_event_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
 
     router.define(
-      '/Keyboard_avoiderWidgetPage',
-      handler: keyboard_avoiderWidgetPageHandler,
+      '/Keyboard_avoider_widget',
+      handler: Keyboard_avoider_widget_Handler,
+      transitionType: TransitionType.inFromRight,
+    );
+    router.define(
+      '/CustomScrollView_widget',
+      handler: CustomScrollView_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
   }

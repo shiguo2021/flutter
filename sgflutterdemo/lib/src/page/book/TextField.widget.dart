@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 
-class TextFieldWidgetPage extends StatelessWidget {
+class TextField_widget extends StatelessWidget {
   String title;
-  TextFieldWidgetPage({this.title});
+  TextField_widget({this.title});
   TextEditingController controller = TextEditingController(text: '测试Example4');
   FocusNode focusNode = FocusNode();
   final ScrollController _scrollController = ScrollController();

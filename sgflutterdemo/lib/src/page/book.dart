@@ -43,7 +43,7 @@ class _BookPageState extends State<BookPage> {
               onPress: () {
                 // TextFieldWidgetPage
                 Application.router
-                    .navigateTo(context, '/${title}WidgetPage?title=${title}');
+                    .navigateTo(context, '/${title}_widget?title=${title}');
               },
             );
           },

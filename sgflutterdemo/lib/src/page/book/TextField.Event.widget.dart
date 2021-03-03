@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import '../../index.dart';
 import 'package:keyboard_avoider/keyboard_avoider.dart';
 
-class TextFieldEventWidgetPage extends StatefulWidget {
+class TextField_event_widget extends StatefulWidget {
   String title;
-  TextFieldEventWidgetPage({this.title});
+  TextField_event_widget({this.title});
 
   @override
-  _TextFieldEventWidgetPageState createState() =>
-      _TextFieldEventWidgetPageState();
+  _TextField_event_widgetState createState() => _TextField_event_widgetState();
 }
 
-class _TextFieldEventWidgetPageState extends State<TextFieldEventWidgetPage> {
+class _TextField_event_widgetState extends State<TextField_event_widget> {
   String title;
   final TextEditingController controller = TextEditingController();
   final TextEditingController controller2 = TextEditingController();

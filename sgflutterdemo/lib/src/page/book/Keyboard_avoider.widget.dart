@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:keyboard_avoider/keyboard_avoider.dart';
 
-class Keyboard_avoiderWidgetPage extends StatelessWidget {
+class Keyboard_avoider_widget extends StatelessWidget {
   String title;
-  Keyboard_avoiderWidgetPage({this.title});
+  Keyboard_avoider_widget({this.title});
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {

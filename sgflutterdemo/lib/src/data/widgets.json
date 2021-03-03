@@ -1,9 +1,10 @@
 {
     "widgets": [
         "TextField",
-        "TextFieldEvent",
+        "TextField_event",
         "Keyboard_avoider",
         "OverflowBox",
-        "Align"
+        "Align",
+        "CustomScrollView"
     ]
 }

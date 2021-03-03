@@ -108,7 +108,7 @@ class SwpierView extends StatelessWidget {
                   return Image.network(
                     // "http://via.placeholder.com/288x188",
                     dataList[index]['url'],
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitHeight,
                   );
                 },
                 itemCount: dataList.length,

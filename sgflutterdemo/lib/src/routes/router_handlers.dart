@@ -1,44 +1,51 @@
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
-import 'package:sgflutterdemo/src/page/book/TextFieldEventWidgetPage.dart';
+import 'package:sgflutterdemo/src/page/book/TextField.Event.widget.dart';
 import '../guide.dart';
 import '../tabs_bottom.dart';
 import '../page/login.dart';
-import '../page/book/TextFieldWidgetPage.dart';
-import '../page/book/TextFieldEventWidgetPage.dart';
-import '../page/book/Keyboard_avoiderWidgetPage.dart';
+import '../page/book/TextField.widget.dart';
+import '../page/book/TextField.Event.widget.dart';
+import '../page/book/Keyboard_avoider.widget.dart';
+import '../page/book/CustomScrollView.widget.dart';
 
-var guideHandler = Handler(
+var guide_Handler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return Guide();
   },
 );
 
-var tabsBottomHandler = Handler(
+var tabsBottom_Handler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return TabsBottom();
   },
 );
 
-var loginHandler = Handler(
+var login_Handler = Handler(
   handlerFunc: (context, params) => LoginPage(),
 );
 
-var textFieldWidgetPageHandler = Handler(
-  handlerFunc: (context, params) => TextFieldWidgetPage(
+var TextField_widget_Handler = Handler(
+  handlerFunc: (context, params) => TextField_widget(
     title: params['title']?.first,
   ),
 );
 
-var textFieldEventWidgetPageHandler = Handler(
-  handlerFunc: (context, params) => TextFieldEventWidgetPage(
+var TextField_event_widget_Handler = Handler(
+  handlerFunc: (context, params) => TextField_event_widget(
     title: params['title']?.first,
   ),
 );
 
-var keyboard_avoiderWidgetPageHandler = Handler(
-  handlerFunc: (_, params) => Keyboard_avoiderWidgetPage(
+var Keyboard_avoider_widget_Handler = Handler(
+  handlerFunc: (_, params) => Keyboard_avoider_widget(
+    title: params['title']?.first,
+  ),
+);
+
+var CustomScrollView_widget_Handler = Handler(
+  handlerFunc: (_, params) => CustomScrollView_widget(
     title: params['title']?.first,
   ),
 );
