@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../index.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,9 +13,11 @@ class HomePage extends StatelessWidget {
         shadowColor: Colors.transparent,
       ),
       body: Container(
+        color: Color(0xFFf5f5f5),
         child: ListView(
           children: [
             SwpierView(),
+            Menu(),
           ],
         ),
       ),
@@ -137,5 +140,65 @@ class SwpierView extends StatelessWidget {
             color: Colors.red,
           );
         });
+  }
+}
+
+class Menu extends StatelessWidget {
+  Future<List> getMenues(BuildContext context) async {
+    String home = await DefaultAssetBundle.of(context)
+        .loadString('lib/src/data/home.json');
+    return json.decode(home)['menu'];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: FutureBuilder(
+        future: getMenues(context),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List dataList = snapshot.data;
+            final screen_width = MediaQuery.of(context).size.width;
+            final w = (screen_width - 20) / 4;
+            return Wrap(
+              // spacing: 10,
+              runSpacing: 10,
+              children: dataList.map((e) {
+                return InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: w,
+                    height: ScreenUtil().setHeight(60),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Placeholder(),
+                        )),
+                        SizedBox(height: 4),
+                        Text(e['title'],
+                            style: TextStyle(
+                                color: Color(0xFF333333),
+                                fontSize: ScreenUtil().setSp(13))),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
+            );
+          }
+
+          return Container();
+        },
+      ),
+    );
   }
 }

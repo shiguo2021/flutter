@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:sgflutterdemo/src/page/book/GridView.widget.dart';
 import './router_handlers.dart';
 import 'error.dart';
 
@@ -49,6 +50,12 @@ class Routes {
     router.define(
       '/CustomScrollView_widget',
       handler: CustomScrollView_widget_Handler,
+      transitionType: TransitionType.inFromRight,
+    );
+
+    router.define(
+      '/GridView_widget',
+      handler: GridView_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
   }

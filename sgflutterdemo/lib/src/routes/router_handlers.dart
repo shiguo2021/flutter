@@ -9,6 +9,7 @@ import '../page/book/TextField.widget.dart';
 import '../page/book/TextField.Event.widget.dart';
 import '../page/book/Keyboard_avoider.widget.dart';
 import '../page/book/CustomScrollView.widget.dart';
+import '../page/book/GridView.widget.dart';
 
 var guide_Handler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -46,6 +47,12 @@ var Keyboard_avoider_widget_Handler = Handler(
 
 var CustomScrollView_widget_Handler = Handler(
   handlerFunc: (_, params) => CustomScrollView_widget(
+    title: params['title']?.first,
+  ),
+);
+
+var GridView_widget_Handler = Handler(
+  handlerFunc: (_, params) => GridView_widget(
     title: params['title']?.first,
   ),
 );

@@ -5,6 +5,8 @@
         "Keyboard_avoider",
         "OverflowBox",
         "Align",
-        "CustomScrollView"
+        "CustomScrollView",
+        "NestedScrollView",
+        "GridView"
     ]
 }
