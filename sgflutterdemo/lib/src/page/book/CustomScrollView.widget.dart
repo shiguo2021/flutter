@@ -44,16 +44,16 @@ class CustomScrollView_widget extends StatelessWidget {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  // return Text('$index',
-                  //     style: TextStyle(backgroundColor: Colors.red));
+                  // return Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: List(10).asMap().keys.map((e) {
+                  //     return Text('$index--${e}',
+                  //         style: TextStyle(backgroundColor: Colors.red));
+                  //   }).toList(),
+                  // );
 
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: List(10).asMap().keys.map((e) {
-                      return Text('$index--${e}',
-                          style: TextStyle(backgroundColor: Colors.red));
-                    }).toList(),
-                  );
+                  return Text('$index',
+                      style: TextStyle(backgroundColor: Colors.red));
                 },
                 childCount: 100,
               ),
