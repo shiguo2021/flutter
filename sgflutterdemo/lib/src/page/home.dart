@@ -14,16 +14,7 @@ class HomePage extends StatelessWidget {
       body: Container(
         child: ListView(
           children: [
-            Container(
-              // color: Colors.blueAccent,
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  SizedBox(height: MediaQuery.of(context).padding.top),
-                  /**顶部输入框 */
-                ],
-              ),
-            )
+            SwpierView(),
           ],
         ),
       ),
@@ -88,5 +79,63 @@ class InputView extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class SwpierView extends StatelessWidget {
+  Future<List> getSwipers(BuildContext context) {
+    final swipers = DefaultAssetBundle.of(context)
+        .loadString('lib/src/data/home.json')
+        .then((res) {
+      return (json.decode(res)['swipers'] as List);
+    });
+    return swipers;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: getSwipers(context),
+        builder: (_, snapshot) {
+          if (snapshot.hasData) {
+            List dataList = snapshot.data as List;
+            return Container(
+              height: ScreenUtil().setHeight(180),
+              width: ScreenUtil().screenWidth,
+              // color: Colors.black,
+              child: new Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return Image.network(
+                    // "http://via.placeholder.com/288x188",
+                    dataList[index]['url'],
+                    fit: BoxFit.cover,
+                  );
+                },
+                itemCount: dataList.length,
+                fade: 0.3,
+                viewportFraction: 0.7,
+                scale: 0.9,
+                outer: true,
+                autoplay: true,
+                pagination: new SwiperPagination(
+                  margin: EdgeInsets.zero,
+                  builder: SwiperCustomPagination(builder:
+                      (BuildContext context, SwiperPluginConfig config) {
+                    return DotSwiperPaginationBuilder(
+                      color: Colors.grey,
+                      activeColor: Colors.blue,
+                      size: 8,
+                      activeSize: 10,
+                    ).build(context, config);
+                  }),
+                ),
+              ),
+            );
+          }
+
+          return Container(
+            color: Colors.red,
+          );
+        });
   }
 }

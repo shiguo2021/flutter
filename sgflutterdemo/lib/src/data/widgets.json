@@ -3,6 +3,7 @@
         "TextField",
         "TextFieldEvent",
         "Keyboard_avoider",
-        "OverflowBox"
+        "OverflowBox",
+        "Align"
     ]
 }

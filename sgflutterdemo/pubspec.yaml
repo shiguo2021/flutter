@@ -56,6 +56,7 @@ flutter:
     - lib/src/assets/icon_install2.jpg
     - lib/src/assets/icon_install3.jpg
     - lib/src/data/widgets.json
+    - lib/src/data/home.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
