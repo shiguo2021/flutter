@@ -1,15 +1,34 @@
 {
-    "swipers":[
-        {"url":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2892349264,345002093&fm=26&gp=0.jpg"},
-        {"url":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3189811869,1561483400&fm=26&gp=0.jpg"},
-        {"url":"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1936015612,867119971&fm=26&gp=0.jpg"}
+    "swipers": [
+        {
+            "url": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2892349264,345002093&fm=26&gp=0.jpg"
+        },
+        {
+            "url": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3189811869,1561483400&fm=26&gp=0.jpg"
+        },
+        {
+            "url": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1936015612,867119971&fm=26&gp=0.jpg"
+        }
     ],
-    "menu":[
-        {"title":"相册"},
-        {"title":"视频"},
-        {"title":"语音"},
-        {"title":"城市地址"},
-        {"title":"弹窗"},
-        {"title":"图片圆角"}
+    "menu": [
+        {
+            "title": "相册"
+        },
+        {
+            "title": "视频"
+        },
+        {
+            "title": "语音"
+        },
+        {
+            "title": "城市地址"
+        },
+        {
+            "title": "弹窗",
+            "page": "Dialog"
+        },
+        {
+            "title": "图片圆角"
+        }
     ]
 }

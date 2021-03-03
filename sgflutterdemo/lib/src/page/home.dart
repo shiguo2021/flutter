@@ -171,7 +171,16 @@ class Menu extends StatelessWidget {
               runSpacing: 10,
               children: dataList.map((e) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    print({
+                      'e': e,
+                      'is': e['page'],
+                    });
+                    if (e['page'] is String) {
+                      Application.router.navigateTo(context,
+                          '${e['page']}_widget?title=${Uri.encodeComponent(e['title'])}');
+                    }
+                  },
                   child: Container(
                     width: w,
                     height: ScreenUtil().setHeight(60),

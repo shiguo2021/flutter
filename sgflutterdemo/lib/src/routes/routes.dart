@@ -58,5 +58,11 @@ class Routes {
       handler: GridView_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
+
+    router.define(
+      '/Dialog_widget',
+      handler: Dialog_widget_Handler,
+      transitionType: TransitionType.inFromRight,
+    );
   }
 }
