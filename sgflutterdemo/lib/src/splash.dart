@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './index.dart';
 import 'dart:async';
+import 'package:provider/provider.dart';
+import './provider/app.model.dart';
 
 class Splash extends StatefulWidget {
   Splash({Key key}) : super(key: key);
@@ -39,7 +41,7 @@ class _SplashState extends State<Splash> {
           t.cancel();
           t = null;
 
-          Application.router.navigateTo(context, '/guide');
+          toJumpNext();
         } else {
           setState(() {
             countDown -= 1;
@@ -47,7 +49,15 @@ class _SplashState extends State<Splash> {
         }
       });
     })();
+
+    context.read<AppModelProvider>().readModel();
+
     super.initState();
+  }
+
+  void toJumpNext() {
+    bool isLogin = context.read<AppModelProvider>().isLogin;
+    Application.router.navigateTo(context, isLogin ? '/tabs_bottom' : '/guide');
   }
 
   @override
@@ -102,7 +112,7 @@ class _SplashState extends State<Splash> {
                 onTap: () {
                   _timer.cancel();
                   _timer = null;
-                  Application.router.navigateTo(context, '/guide');
+                  toJumpNext();
                 },
                 child: Container(
                   padding: EdgeInsets.fromLTRB(30, 5, 30, 5),

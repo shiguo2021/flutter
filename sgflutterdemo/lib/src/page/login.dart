@@ -4,6 +4,8 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../routes/application.dart';
 import 'package:keyboard_avoider/keyboard_avoider.dart';
+import 'package:provider/provider.dart';
+import '../provider/app.model.dart';
 
 class LoginPage extends StatelessWidget {
   final ScrollController _controller = ScrollController();
@@ -106,6 +108,7 @@ class LoginPage extends StatelessWidget {
                 child: RaisedButton(
                   color: Colors.white,
                   onPressed: () {
+                    context.read<AppModelProvider>().setModel("@isLogin", true);
                     Application.router.navigateTo(context, 'tabs_bottom');
                   },
                   child: Container(
