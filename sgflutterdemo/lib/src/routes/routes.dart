@@ -69,5 +69,9 @@ class Routes {
       handler: CupertinoPicker_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
+
+    router.define('/Button_widget',
+        handler: Button_widget_Handler,
+        transitionType: TransitionType.inFromRight);
   }
 }

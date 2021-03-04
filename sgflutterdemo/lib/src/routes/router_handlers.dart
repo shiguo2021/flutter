@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
+import 'package:sgflutterdemo/src/page/book/Button.widget.dart';
 import 'package:sgflutterdemo/src/page/book/TextField.Event.widget.dart';
 import '../guide.dart';
 import '../tabs_bottom.dart';
@@ -68,5 +69,10 @@ final Dialog_widget_Handler = Handler(
 
 final CupertinoPicker_widget_Handler = Handler(
     handlerFunc: (_, params) => CupertinoPicker_widget(
+          title: params['title']?.first,
+        ));
+
+final Button_widget_Handler = Handler(
+    handlerFunc: (_, params) => Button_widget(
           title: params['title']?.first,
         ));

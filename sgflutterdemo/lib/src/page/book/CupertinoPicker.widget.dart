@@ -15,6 +15,7 @@ class CupertinoPicker_widget extends Base_controller {
         Divider(),
         Example1(),
         Divider(),
+        Example2(),
       ],
     );
   }
@@ -92,6 +93,36 @@ class Example1 extends StatelessWidget {
                 onTimerDurationChanged: (duration) {
                   print(
                       '当前选择了：${duration.inHours}时${duration.inMinutes - duration.inHours * 60}分${duration.inSeconds - duration.inMinutes * 60}秒');
+                },
+              ),
+            ),
+          ],
+        ));
+  }
+}
+
+class Example2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Colors.orange,
+        height: ScreenUtil().setHeight(250),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('CupertinoDatePicker'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(onPressed: () {}, child: Text('取消')),
+                TextButton(onPressed: () {}, child: Text('确定')),
+              ],
+            ),
+            Expanded(
+              child: CupertinoDatePicker(
+                mode: CupertinoDatePickerMode.date,
+                onDateTimeChanged: (DateTime dateTime) {
+                  print('${dateTime.year}-${dateTime.month}-${dateTime.day}');
                 },
               ),
             ),

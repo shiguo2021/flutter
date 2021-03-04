@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sgflutterdemo/src/index.dart';
 import '../base/base.controller.dart';
+import 'dart:math';
 
 class Dialog_widget extends Base_controller {
   Dialog_widget({title}) : super(title: title);
@@ -23,7 +24,8 @@ class Dialog_widget extends Base_controller {
                     _SimpleDialog(context);
                     break;
                   case "showModalBottomSheet":
-                    _showModalBottomSheet(context);
+                    _showModalBottomSheet(
+                        context: context, seed: Random().nextInt(10));
                     break;
                 }
               },
@@ -48,8 +50,8 @@ class Dialog_widget extends Base_controller {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text('0'),
                 Text('1'),
-                Text('2'),
               ],
             ),
           ),
@@ -57,13 +59,13 @@ class Dialog_widget extends Base_controller {
             FlatButton(
               textColor: Colors.red,
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(0);
               },
               child: Text('取消'),
             ),
             FlatButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context, 1);
               },
               child: Text('确认'),
             )
@@ -103,10 +105,12 @@ class Dialog_widget extends Base_controller {
     });
   }
 
-  _showModalBottomSheet(BuildContext context) {
+  _showModalBottomSheet({BuildContext context, int seed}) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true, //设置为 true 后，底部弹框的最大高度可以占满全屏。
+      isDismissible: false,
+      enableDrag: false,
       builder: (context) {
         return Container(
           height: ScreenUtil().setHeight(300),
@@ -123,12 +127,14 @@ class Dialog_widget extends Base_controller {
                   TextButton(onPressed: () {}, child: Text('确定')),
                 ],
               ),
+              Text('$seed',
+                  style: TextStyle(fontSize: 16, color: Colors.orangeAccent)),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   color: Colors.red,
                   child: ListView.builder(
-                    itemCount: 20,
+                    itemCount: seed,
                     itemBuilder: (context, index) => Text('$index'),
                   ),
                 ),
