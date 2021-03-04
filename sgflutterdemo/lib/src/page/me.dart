@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sgflutterdemo/src/widgets/index.dart';
 import '../index.dart';
 import 'package:provider/provider.dart';
-import '../provider/app.model.dart';
+import '../provider/AppModel.dart';
 
 class MePage extends StatelessWidget {
   @override
@@ -92,7 +92,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.read<AppModelProvider>().initModel();
+        context.read<AppModel>().initModel();
         Application.router.navigateTo(context, 'login');
       },
       child: Container(

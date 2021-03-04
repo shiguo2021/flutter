@@ -4,7 +4,7 @@ import './page/home.dart';
 import './page/book.dart';
 import './page/found.dart';
 import './page/me.dart';
-import './provider/tabs_bottom_provider.dart';
+import './provider/AppModel.dart';
 import 'package:provider/provider.dart';
 
 class TabsBottom extends StatelessWidget {
@@ -47,7 +47,7 @@ class TabsBottom extends StatelessWidget {
     return Scaffold(
       // body: pages[0],
       body: IndexedStack(
-        index: context.watch<TabsBottomProvider>().tabIndex,
+        index: context.watch<AppModel>().tabIndex,
         children: pages,
       ),
 
@@ -55,9 +55,9 @@ class TabsBottom extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: items,
-        currentIndex: context.watch<TabsBottomProvider>().tabIndex,
+        currentIndex: context.watch<AppModel>().tabIndex,
         onTap: (index) {
-          context.read<TabsBottomProvider>().setTabIndex(index);
+          context.read<AppModel>().setTabIndex(index);
         },
         selectedItemColor: Colors.deepOrange,
         unselectedItemColor: Colors.black,

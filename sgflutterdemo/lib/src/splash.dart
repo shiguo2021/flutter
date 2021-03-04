@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './index.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
-import './provider/app.model.dart';
+import 'provider/AppModel.dart';
 
 class Splash extends StatefulWidget {
   Splash({Key key}) : super(key: key);
@@ -50,13 +50,13 @@ class _SplashState extends State<Splash> {
       });
     })();
 
-    context.read<AppModelProvider>().readModel();
+    context.read<AppModel>().readModel();
 
     super.initState();
   }
 
   void toJumpNext() {
-    bool isLogin = context.read<AppModelProvider>().isLogin;
+    bool isLogin = context.read<AppModel>().isLogin;
     Application.router.navigateTo(context, isLogin ? '/tabs_bottom' : '/guide');
   }
 
