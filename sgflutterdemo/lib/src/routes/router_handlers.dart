@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
@@ -11,6 +12,7 @@ import '../page/book/Keyboard_avoider.widget.dart';
 import '../page/book/CustomScrollView.widget.dart';
 import '../page/book/GridView.widget.dart';
 import '../page/home/Dialog.widget.dart';
+import '../page/book/CupertinoPicker.widget.dart';
 
 var guide_Handler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -63,3 +65,8 @@ final Dialog_widget_Handler = Handler(
     title: params['title']?.first,
   ),
 );
+
+final CupertinoPicker_widget_Handler = Handler(
+    handlerFunc: (_, params) => CupertinoPicker_widget(
+          title: params['title']?.first,
+        ));
