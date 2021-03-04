@@ -9,6 +9,8 @@ abstract class Base_controller extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        // shadowColor: Colors.transparent,
+        elevation: 0,
       ),
       body: initViews(context),
     );

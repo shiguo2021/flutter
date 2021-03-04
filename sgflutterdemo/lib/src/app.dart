@@ -7,6 +7,9 @@ import 'package:fluro/fluro.dart';
 import 'routes/application.dart';
 import 'routes/routes.dart';
 
+/**国际化 */
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 class AppPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,23 @@ class AppPage extends StatelessWidget {
         home: Scaffold(
           body: Splash(),
         ),
+
+        /** 国际化*/
+        localizationsDelegates: [
+          // ... app-specific localization delegate[s] here
+          // TODO: uncomment the line below after codegen
+          // AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('en', ''), // English, no country code
+          const Locale('ar', ''), // Arabic, no country code
+          const Locale.fromSubtags(
+              languageCode: 'zh'), // Chinese *See Advanced Locales below*
+          // ... other locales the app supports
+        ],
       ),
     );
 

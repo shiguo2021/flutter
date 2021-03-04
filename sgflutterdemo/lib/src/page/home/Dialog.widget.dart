@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sgflutterdemo/src/index.dart';
 import '../base/base.controller.dart';
 
 class Dialog_widget extends Base_controller {
   Dialog_widget({title}) : super(title: title);
 
-  List list = ["AlertDialog", "SimpleDialog"];
+  List list = ["AlertDialog", "SimpleDialog", "showModalBottomSheet"];
 
   @override
   Widget initViews(BuildContext context) {
@@ -20,6 +21,9 @@ class Dialog_widget extends Base_controller {
                     break;
                   case "SimpleDialog":
                     _SimpleDialog(context);
+                    break;
+                  case "showModalBottomSheet":
+                    _showModalBottomSheet(context);
                     break;
                 }
               },
@@ -97,5 +101,42 @@ class Dialog_widget extends Base_controller {
     ).then((val) {
       print(val);
     });
+  }
+
+  _showModalBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, //设置为 true 后，底部弹框的最大高度可以占满全屏。
+      builder: (context) {
+        return Container(
+          height: ScreenUtil().setHeight(300),
+          color: Colors.white,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text('取消'),
+                  ),
+                  TextButton(onPressed: () {}, child: Text('确定')),
+                ],
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  color: Colors.red,
+                  child: ListView.builder(
+                    itemCount: 20,
+                    itemBuilder: (context, index) => Text('$index'),
+                  ),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
   }
 }

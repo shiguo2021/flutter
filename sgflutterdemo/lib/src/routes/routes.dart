@@ -64,5 +64,10 @@ class Routes {
       handler: Dialog_widget_Handler,
       transitionType: TransitionType.inFromRight,
     );
+    router.define(
+      '/CupertinoPicker_widget',
+      handler: CupertinoPicker_widget_Handler,
+      transitionType: TransitionType.inFromRight,
+    );
   }
 }
