@@ -35,7 +35,13 @@ class Example0 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(onPressed: () {}, child: Text('取消')),
-                TextButton(onPressed: () {}, child: Text('确定')),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('确定'),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) => Colors.green)),
+                ),
               ],
             ),
             Expanded(
